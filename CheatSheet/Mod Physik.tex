@@ -102,13 +102,15 @@ $p=\sum_i p_i = \sum_i m_i v_i, L = \sum r_i x p_i$\\
 
 \section{Analytische Mechanik}
 \subsection{Lagrange}
-Lagrgange Gleichung: $L = T - U$\\
+Lagrange Gleichung: $L = T - U$\\
 %
 \\
-MERKE: $F = -\nabla U \Leftrightarrow \int F = U$\\
+MERKE: $F = -\nabla U \Leftrightarrow \int F = U$, U ist unabhängig von $\dot{q_i}$\\
+relativistisch $\Rightarrow L = -mc^2\sqrt{1-\frac{v^2}{c^2}}$
 %
 \\
 Euler-Langrange $\frac{\text{d}}{\text{d}t} \frac{\partial L}{\partial \dot{q}_i} - \frac{\partial{L}}{\partial q_i} = 0$\\
+3N-s Gleichungen, s Zwangbedingungen
 %
 \\
 Verallgemeineter Impuls
@@ -152,7 +154,7 @@ H(\vec{p},\vec{q},t)= E(\vec{p},\vec{q},t)\\
 H(\vec{p},\vec{p},t) = \sum_j  p_j \dot{q}_j  (\vec{p},\vec{q},t)  - L(\vec{p},\vec{\dot{q}}(\vec{p},\vec{q},t),t)
 \end{eqnarray}
 %
-Kanonischer Impuls\\
+Kanonischer Impuls (Verallgemeineter Impuls\\
 $p_{j} = {\frac{{\partial L}}{{\partial \dot q_j }}} = p_j(\vec{q},\vec{\dot q}, t), \dot{q}_j= \dot{q_j}(\vec{q},\vec{\dot{q}}, t)$\\
 %
 \\
@@ -161,7 +163,7 @@ $\dot{p}_i = -\frac{\partial H}{\partial q_i}, \dot{q}_i = \frac{\partial H}{\pa
 \\
 %
 Hamilton Prinzip = Prinzip der kleinen WIrkung\\
-$\frac{\partial H}{\partial t} = \frac{\partial H}{\partial t}$, falls $\frac{\partial H}{\partial t} = 0 \Rightarrow$ \textbf{Energie Erhalten}
+$\frac{\partial H}{\partial t} = \frac{\partial H}{\partial t}$, falls $\underbrace{\frac{\partial H}{\partial t}}_{zeitinvariant} = 0 \Rightarrow$ \textbf{Energie Erhalten}
 %
 \subsection{Noether-Theorem}
 Falls eine Schar von bahnkurven existiert und invariant ist unter den transformierten Koordinanten (es gilt $q(t,\epsilon=0)=q(t))$\\
@@ -219,41 +221,57 @@ $[a,b]=ab-ba$, $0$ wenn $a$ und $b$ kommutieren also wenn $ab=ba$ gilt.
 \begin{itemize}
 \item  alternierend (antisymmetrisch): $[a,b]=-[b,a]$
 \item Linear: $ [\lambda a+\mu b,c]=\lambda [a,c] + \mu [b,c]$
-\item Jacobi-Identität: $[a,[b,c]]+[b,[c,a]]+[c,[a,b]]=0.$
-\item Produktregel: $[a,bc] = [a,b]c+b[a,c], [ab,c] = a[b,c]+[a,c]b.$
+\item Jacobi-Identität: $[a,[b,c]]+[b,[c,a]]+[c,[a,b]]=0$
+\item Produktregel: $[a,bc] = [a,b]c+b[a,c], [ab,c] = a[b,c]+[a,c]b$
+\item Regel: $[\lambda a + \mu b,c] = \lambda [a,c]+\mu [b,c]$
 \end{itemize}
 %
 Imulsoperator:\\
-$<p> = \hat p = -i*h*\frac{\partial}{\partial x}$, für eine ebene Welle $\phi(x)=e^{eik}$. Impulsimporator ist hermitesch\\
+$\hat p = -i*h*\frac{\partial}{\partial x}$, für eine ebene Welle $\phi(x)=e^{eik}$. $\hat\phi(x)=\hbar k \psi(x)$\\
+Imulsoperator ist hermitesch\\
 %
+\\
 Ortsoperator:\\
-$<x> = \hat x =  \int_{\mathbb{R}} x|phi(x)|^2 dx$. Ist Hermitesch
+$\hat x =  \int_{\mathbb{R}} x|phi(x)|^2 dx$. Ist Hermitesch\\
 %
+\\
 Hamilton-Operator (Energieoperator)\\
-$\mathrm i \, \hbar {\partial \over \partial t} \, \psi (t) = \hat H \, \psi (t),\hbar = \frac{h}{2\pi}$\\
+$\hat H = \mathrm i \, \hbar {\partial \over \partial t} \, \psi (t)  \, \psi (t),\hbar = \frac{h}{2\pi}$\\
 %
+\\
+Für 1D: $\hat H = \frac{\hat p^2}{2m}+V(\hat x) = - \frac{{\hbar}^2}{2m})\frac{{\partial}^2}{\partial x^2}+V(\hat x)$\\
+%
+\\
 Schrödingergleichung:\\
-Allgemeiner Form: $\mathrm{i}\hbar\frac{\partial}{\partial t} |\,\psi (t) \rangle = \hat{H} |\,\psi (t) \rangle$\\
+Allgemeiner Form: $\hat{H} |\,\psi (t) \rangle = \mathrm{i}\hbar\frac{\partial}{\partial t} |\,\psi (t) \rangle $\\
 %
-Mit Hamilton-Operator: $\mathrm{i}\hbar\frac{\partial}{\partial t} \psi(\mathbf{r},t) = \hat H \psi(\mathbf{r},t)$
+Mit Hamilton-Operator: $\hat H \psi(\mathbf{x},t)=\mathrm{i}\hbar\frac{\partial}{\partial t} \psi(\mathbf{x},t) $
 \subsection{Observable}
 2 Observable sind komperativ wenn sie kommutieren.\\
 %
+\\
 Betragsquadrat\\
 $ \frac{\partial \rho}{\partial t} + \operatorname{div} \, \mathbf{j} = 0$\\
 %
-  Wahrscheinlichkeitsstromdichte für das Teiclhen in Ort x zu sein:\\
-$ \mathbf j = -\frac{i \hbar}{2m}(\Psi^*\operatorname{grad}\Psi - \Psi\operatorname{grad}\Psi^*)$\\
+\\
+Wahrscheinlichkeitsstromdichte für das Teilchen in Ort x zu sein:\\
+$ \mathbf j = -\frac{i \hbar}{2m}(\Psi^*\frac{\partial}{\partial x}\Psi - \Psi\frac{\partial}{\partial x}\Psi^*)$\\
 %
 \\
 Normierungsbedingung:\\
 $<\psi|\psi>=\int |\psi(x)|^2=1$\\
- %
- Wahrscheinlichkeitsdichte\\
-$\rho(\mathbf r,t)=|\Psi(\mathbf r,t)|^2$\\
 %
-$\phi^2=\phi^*\phi$\\
+\\
+Wahrscheinlichkeitsdichte\\
+$\rho(\mathbf x,t)=|\Psi(\mathbf x,t)|^2$\\
+für $\vec{x} \Rightarrow \vec{j}=\frac{\hbar}{2mi}(\Psi^* (\vec{\nabla})-(\nabla \Psi^*)\Psi)$\\
+%
+\\
+$|\phi|^2=\phi^*\phi$\\
 $\nabla^2=\Delta$
+
+\subsection{Kontinuitätsgleichung}
+$\frac{\partial p}{\partial t} + \vec{\nabla}\vec{j}=0$
 
 \subsection{Harmonischer Oszilator}
 $\vec(x)=\vec{A}*sin(\omega t + \phi_0)$\\
