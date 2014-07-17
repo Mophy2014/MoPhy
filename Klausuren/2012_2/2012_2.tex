@@ -38,19 +38,47 @@ Es ist also
 \item Berechnen Sie Orts- und Impulsmittelwert $\braket{x}=\braket{\psi|x|\psi}$ und $\braket{p}=\braket{\psi|p|\psi}$ im Zustand $\psi(x,t)$
 \item[Lösung:]
 \begin{align*}
-\braket{x}&=\int_{-\infty}^{\infty} x |\psi(x)|^2\:dx = 0  \qquad\text{(ungerade Funktion)} \\
-\intertext{Um $\braket{p}$ zu berechnen, kann man entweder $\psi(x)$ in Impulsdarstellung bringen (Fouriertransformation) oder man benutzt den Operator $\hat p=-i\hbar \frac{\partial}{\partial x}$}
-\braket{p}&=\int_{-\infty}^{\infty} \psi^\ast(x) \hat p \psi(x)\: dx=-i\hbar\int_{-\infty}^{\infty}\psi^\ast(x)\frac{\partial}{\partial x}\psi(x)\:dx
-\intertext{Dieser Lösungsweg ist scheinbar nicht für die Klausur geeignet, da es augenscheinlich sehr aufwendig ist, $\psi(x)$ nach $x$ abzuleiten. Die Multiplikation mit $\psi^\ast(x)$ und anschließende Integration sind mindestens ebenso aufwendig. Stattdessen:}
-\frac{d \braket{x}}{dt}=0 \Rightarrow \braket{p}=0
+\braket{x}	&=\braket{\psi|x|\psi} = \frac 12 \sqrt{\frac{2\hbar}{m\omega}} \psi^\ast (\hat a + \hat a^\dagger) \psi \\
+			&=\frac 12 \sqrt{\frac{2\hbar}{m\omega}}(N_0^\ast \bra 0 + N_1^\ast \bra 1 + N_2^\ast \bra 2)\:(\hat a +\hat a^\dagger)\:(N_0 \ket 0 + N_1 \ket 1 + N_2 \ket 2) \\
+\intertext{Da die $N_i$ rein reell sind, ist $N_i=N_i^\ast$. Außerdem ist $N_0=0$}
+			&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\big(N_1 \bra 1 + N_2 \bra 2\big)(\hat a +\hat a^\dagger) \big(N_1 \ket 1 + N_2 \ket 2\big) \\
+			&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\big(N_1 \bra 1 + N_2 \bra 2\big)\:\hat a\big(N_1 \ket 1 + N_2 \ket 2\big) \\
+			&+ \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\big(N_1 \bra 1 + N_2 \bra 2\big)\:\hat a^\dagger\big(N_1 \ket 1 + N_2 \ket 2\big) \\
+			&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\big(N_1 \bra 1 + N_2 \bra 2\big)\big(N_1 \ket 0 + \sqrt 2 N_2  \ket 1\big) \\
+			&+ \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\big(N_1 \bra 1 + N_2 \bra 2\big)\big(\sqrt 2 N_1 \ket 2 + \sqrt 3 N_2 \ket 3\big) \\
+			&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} \Big( N_1 N_1\braket{1|0} + \sqrt 2 N_1 N_2 \braket{1|1} + N_2 N_0 \braket{2|0} + \sqrt 2 N_2 N_2 \braket{2|1} \\
+			&\qquad + \sqrt 2 N_1 N_1 \braket{1|2} + \sqrt 3 N_1 N_2 \braket{1|3} + \sqrt 2 N_2 N_1 \braket{2|2} + \sqrt 3 N_2 N_2 \braket{2|3}\Big)			
+			\intertext{Wegen $\braket{i|j}=\delta_{i,j}$ vereinfacht sich der Term zu}
+			&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\Big(\sqrt 2 N_1 N_2 + \sqrt 2 N_2 N_1  \Big)	\\
+			\intertext{$N_1=\frac{\sqrt 3}{2}, N_2=\frac{1}{2}$}
+			&= \sqrt{\frac{2\hbar}{m\omega}}\Big(\sqrt 2 \frac{\sqrt 3}{2} \frac{1}{2}  \Big)	\\
+			&= \sqrt{\frac{3\hbar}{2m\omega}}	\\
+			&\Big(= \int_{-\infty}^{\infty} x |\psi(x)|^2\:dx\Big)
 \end{align*}
+Da $\braket{x}$ nicht von $t$ abhängt, ist
+\begin{align}
+\braket{p}	&= \frac{d\braket{x}}{dt} \\
+			&= 0
+\end{align}
 
 \item Überprüfen Sie Heisenbergs Prinzip
 \[(\Delta x)^2(\Delta p)^2\geq\frac{\hbar^2}{4}\]
 \item[Lösung:]
 Berechne zuerst $\braket{x^2}$ und $\braket{p^2}$:
 \begin{align*}
-\braket{x^2}	&= \int_{-\infty}^{\infty} x^2 |\psi(x)|^2\:dx = 2\int_{0}^{\infty}x^2
+\braket{x^2}	&= \braket{\psi|\hat x^2|\psi}		\\
+				&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} \psi^\ast (\hat a + \hat a^\dagger)^2 \psi	\\
+				&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} 
+				(N_0^\ast\bra 0 + N_1^\ast \bra 1 + N_2^\ast \bra 2)
+				\:(\hat a\hat a + 2 \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
+				(N_0\ket 0 + N_1 \ket 1 + N_2 \ket 2)		\\
+				&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} 
+				(N_1^\ast \bra 1 + N_2^\ast \bra 2)
+				\:(\hat a\hat a + 2 \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
+				(N_1 \ket 1 + N_2 \ket 2)		\\
+\end{align*}
+\begin{align*}
+%TODO
 \end{align*}
 
 \end{enumerate}

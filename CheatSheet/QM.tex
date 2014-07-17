@@ -8,6 +8,7 @@
 
 
 
+
 \begin{document}
 \begin{multicols}{3}
 
@@ -27,13 +28,19 @@ Ortsoperator 			& $\hat x = x = i \hbar \frac{\partial}{\partial p}$	\\
 Impulsoperator 			& $\hat p = p = -i\hbar \frac{\partial}{\partial x}$	\\
 Abstiegsoperator 		& $\hat a = \sqrt{\frac{m \omega}{2\hbar}} \hat x + \frac{i}{\sqrt{2\hbar m \omega}} \hat p$	\\
 Aufstiegsoperator 		& $\hat a^\dagger = \sqrt{\frac{m \omega}{2\hbar}} \hat x - \frac{i}{\sqrt{2\hbar m \omega}} \hat p$ \\
-Hamiltonoperator		& $H=\frac{\hat p^2}{2m}+\frac{1}{2}m\omega^2\hat x^2 = \frac{\hat p^2}{2m} + V(\hat x)$
+Hamiltonoperator		& $H=\frac{\hat p^2}{2m}+\frac{1}{2}m\omega^2\hat x^2 = \frac{\hat p^2}{2m} + V(\hat x)$	\\
+Damit gilt				& $\hat x  = \frac 12 \sqrt{\frac{2\hbar}{m\omega}}(\hat a + \hat a^\dagger) + \sqrt{\frac{\hbar}{2m\omega}}(\hat a + \hat a^\dagger)$	\\
+						& $\hat a\ket n = \sqrt{n}\ket{n-1} \qquad \hat a \ket 0 = 0$ \\
+						& $\hat a^\dagger \ket n = \sqrt{n+1}\ket n$	\\
+						& $\ket n = \frac{(\hat a^\dagger)^n}{\sqrt {n!}} \ket 0 $
 \end{tabular}
 
 \subsection{Mittelwerte}
 \begin{align*}
-\braket{x}	&=\braket{\psi|x|\psi}=\int_{-\infty}^{\infty} \hat x\:|\psi(x)|^2\:dx	\\
-\braket{p}	&=\braket{\psi|x|\psi}=\int_{-\infty}^{\infty} \hat p\:|\psi(x)|^2\:dx
+\braket{x}=\braket{\psi|x|\psi}	&=\int_{-\infty}^{\infty} x\:|\psi(x)|^2\:dx\qquad\text{nur falls } x \text{ kein Operator!}\\
+								&=\int_{-\infty}^{\infty} \psi(x)^\ast \hat x\:\psi(x)\:dx		\\
+								&=\frac 12 \sqrt{\frac{2\hbar}{m\omega}}(\alpha^\ast \bra 0 + \beta^\ast \bra 1 + \dots) (\hat a + \hat a^\dagger) (\alpha \ket 0 + \beta \ket 1 + \dots) \\
+\braket{p}=\braket{\psi|x|\psi}	&=\int_{-\infty}^{\infty} \hat p\:|\psi(x)|^2\:dx= \text{ analog zu}\braket{\psi|x|\psi}\text{.}	\\
 \end{align*}
 
 \end{multicols}
