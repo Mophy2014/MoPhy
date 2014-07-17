@@ -1,0 +1,59 @@
+\documentclass{scrartcl}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage{braket}
+
+\begin{document}
+
+\section{Harmonischer Oszillator}
+
+Gegeben sei ein quantenmechanischer harmonischer Oszillator beschrieben durch die eine Wellenfunktion
+\[\psi(x,0)=\left(\frac{m\omega}{\pi \hbar}\right)^{1/4}\left(\frac{m\omega}{\sqrt 2 \hbar}x^2+\sqrt{\frac{3m\omega}{2\hbar}}x-\frac{1}{2\sqrt 2}\right)e^{-\frac{m\omega}{2\hbar}x^2}\]
+Und den Eigenfunktionen
+\begin{align*}
+\psi_0(x)	&=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega}{2\hbar}x^2}	\\
+\psi_1(x)	&=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\sqrt{\frac{2m\omega}{\hbar}}xe^{-\frac{m\omega}{2\hbar}x^2}	\\
+\psi_2(x)	&=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\frac{1}{\sqrt 2}\left(\frac{2m\omega}{\hbar}x^2-1\right)e^{-\frac{m\omega}{2\hbar}x^2}
+\end{align*}
+und der Energie 
+\[E_n =\left(n+\frac{1}{2}\right)\hbar\omega\]
+
+\begin{enumerate}[a)]
+\item Schreiben Sie die Wellenfunktion als eine Summe von Eigenfunktionen des harmonischen Oszillators und bestimmen Sie eine zeitabhängige Wellenfunktion $\psi(x,t)$.
+\item[Lösung:]
+Durch scharfes hinsehen wieht man:
+\[\psi(x)=\frac{\sqrt 3}{2}\psi_1(x)+\frac{1}{2}\psi_2(x)\]
+Der Faktor $\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega}{2\hbar}x^2}$ kommt in allen Eigenfunktionen vor. Betrachte also nur die Klammer, $\psi_1$ ist die einzige Funktion die $x^1$ enthält und $\psi_2$ die einzige mit $x^2$.\\
+Es gilt
+\[\psi(x,t)=\sum_k N_k e^{-iE_k t/\hbar}\ket{k}=\sum_k N_k e^{-iE_k t /\hbar}\psi_k(x)\]
+Es ist also
+\begin{align*}
+\psi(x,t)	&=N_0 e^{-iE_0 t/\hbar}\psi_0(x) + N_1 e^{-iE_1 t/\hbar}\psi_1(x) + N_2 e^{-iE_2 t/\hbar}\psi_2(x) \\
+&= \frac{\sqrt 3}{2} e^{-\frac{3}{2}i\omega t}\psi_1(x) + \frac{1}{2} e^{-\frac{5}{2}i\omega t}\psi_2(x) \\
+\end{align*}
+
+\item Berechnen Sie Orts- und Impulsmittelwert $\braket{x}=\braket{\psi|x|\psi}$ und $\braket{p}=\braket{\psi|p|\psi}$ im Zustand $\psi(x,t)$
+\item[Lösung:]
+\begin{align*}
+\braket{x}&=\int_{-\infty}^{\infty} x |\psi(x)|^2\:dx = 0  \qquad\text{(ungerade Funktion)} \\
+\intertext{Um $\braket{p}$ zu berechnen, kann man entweder $\psi(x)$ in Impulsdarstellung bringen (Fouriertransformation) oder man benutzt den Operator $\hat p=-i\hbar \frac{\partial}{\partial x}$}
+\braket{p}&=\int_{-\infty}^{\infty} \psi^\ast(x) \hat p \psi(x)\: dx=-i\hbar\int_{-\infty}^{\infty}\psi^\ast(x)\frac{\partial}{\partial x}\psi(x)\:dx
+\intertext{Dieser Lösungsweg ist scheinbar nicht für die Klausur geeignet, da es augenscheinlich sehr aufwendig ist, $\psi(x)$ nach $x$ abzuleiten. Die Multiplikation mit $\psi^\ast(x)$ und anschließende Integration sind mindestens ebenso aufwendig. Stattdessen:}
+\frac{d \braket{x}}{dt}=0 \Rightarrow \braket{p}=0
+\end{align*}
+
+\item Überprüfen Sie Heisenbergs Prinzip
+\[(\Delta x)^2(\Delta p)^2\geq\frac{\hbar^2}{4}\]
+\item[Lösung:]
+Berechne zuerst $\braket{x^2}$ und $\braket{p^2}$:
+\begin{align*}
+\braket{x^2}	&= \int_{-\infty}^{\infty} x^2 |\psi(x)|^2\:dx = 2\int_{0}^{\infty}x^2
+\end{align*}
+
+\end{enumerate}
+
+
+\end{document}
