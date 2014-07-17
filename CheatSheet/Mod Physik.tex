@@ -1,0 +1,293 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\author{Patrick Petersen}
+\title{Moderne Physik für Informatiker Zusammenfassung}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Zusammenfassung der "Moderne Physik für Informatiker"'-Vorlesung von Prof. Dr.Schnirman.
+\end{abstract}
+
+\setcounter{tocdepth}{3}
+
+
+\newpage
+\tableofcontents
+
+
+\newpage
+
+\section{Mathe Tricks}
+
+Trigonometrische Funktionen:
+\begin{eqnarray}
+1=sin^2(x)+cos^2(x)\\
+sin(x+y) = sin(x)*cos(y) + cos(x)*sin(y)\\
+sin(x-y) = sin(x)*cos(y) - cos(x)*sin(y)\\
+cos(x+y) = cos(x)*cos(y) - sin(x)*sin(y)\\
+cos(x-y) = cos(x)*cos(y) + sin(x)*sin(y)
+\end{eqnarray}
+%
+\\
+Ableitung:
+\begin{eqnarray}
+\frac{df}{dt} = \frac{d}{dt} f(x(t),y(t),z(t))=  \frac{\partial f}{\partial x} \frac{x}{t} + \frac{\partial f}{\partial y} \frac{y}{t} + \frac{\partial f}{\partial z} \frac{z}{t} + \frac{\partial f}{\partial t}
+\end{eqnarray}
+%
+\\
+Kugelkoordinaten:
+\begin{eqnarray}
+x = r sin(\theta)cos(\phi)\\
+y = r sin(\theta)sin(\phi)\\
+z = r cos(\theta)\\
+\dot{x} =\dot{r}\sin(\theta)\cos(\phi)+r\cos(\theta)\cos(\phi)\dot{\theta }-r\sin(\theta)\sin(\phi)\dot{\phi}\\
+\dot{y} = \dot{r}\sin(\theta)\sin(\phi)+r\cos(\theta)\sin(\phi)\dot{\theta }+r\sin(\theta)\cos(\phi)\dot{\phi}\\
+\dot{z}= \dot{r}\cos(\theta)-r\sin(\theta)\dot{\theta}
+\end{eqnarray}
+%
+\\
+Zylinderkoordinaten:
+\begin{eqnarray}
+x = \rho cos(\phi)\\
+y = \rho sin(\phi)\\
+z = z
+\end{eqnarray}
+%
+pq formel = $x_{1,2} = - \frac{p}{2}\pm\sqrt{\left(\frac{p}2\right)^2 - q}$\\
+%
+\\
+Komplexezahlen:\\
+$|z|=\sqrt{z*z^*}=\sqrt{(a-ib)(a-ib)}=\sqrt{a^2+b^2}$\\
+$z*z^*=|z|$\\
+%
+\\
+Eigenvektoren: Bestimme $\lambda$ mit $det(A-\lambda E)=$char-poly. Löse Gleichungen nach 0 und setze in $|a|^2+|b|^2+..... = 1$, falls normiert, andernfalls normieren.\\
+%
+\\
+Determinante von 3x3-Matrix:\\
+\begin{align}\det A &= \det \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\\ &= a_{11} a_{22} a_{33} +a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31} - a_{12} a_{21} a_{33} - a_{11} a_{23} a_{32}.\end{align}\\
+%
+\\
+Inverse\\
+$A^{-1} = \frac{1}{\det A} \cdot \operatorname{adj} A$\\
+$\operatorname{adj} (A) = \begin{pmatrix} \,\,\,{{d}} & \!\!{{-c}}\\ {{-b}} & {{a}} \end{pmatrix} ^T = \begin{pmatrix} \,\,\,{{d}} & \!\!{{-b}}\\ {{-c}} & {{a}} \end{pmatrix}$\\
+\begin{align}\operatorname{adj} (A)& =\begin{pmatrix}ei - fh & ch - bi & bf - ce \\fg - di & ai - cg & cd - af \\dh - eg & bg - ah & ae - bd\end{pmatrix}\end{align}
+
+\section{Lagrange}
+Lagrgange Gleichung: $L = T - U$\\
+%
+\\
+MERKE: $F = -\nabla U \Leftrightarrow \int F = U$\\
+%
+\\
+Euler-Langrange $\frac{\text{d}}{\text{d}t} \frac{\partial L}{\partial \dot{q}_i} - \frac{\partial{L}}{\partial q_i} = 0$\\
+%
+\\
+Verallgemeineter Impuls
+$p_i = \frac{d x}{d q_i}$
+%
+Zyklische Koordinaten:\\
+L unabhängig von $q_i$ also $ \frac{\partial L}{\partial q_i}=0$\\
+$\frac{\partial{L}}{\partial q_i}=0 \Rightarrow \frac{\partial L}{\partial q_i}=0=const=P_i$ (verallgemeinter Impuls\\
+%
+Federschwinning: $\frac{k}{2}*(x_2-x_1)^2+(x_2-x_3)^2$\\
+%
+Aufstellen der Lagrgange Matrix aus Euler-Lagrgange gleichung. Aufstellen der $\dot{x_i}=...)$  eintragen in Matrix.
+
+\section{Hamilton}
+\begin{eqnarray}
+H(\vec{p},\vec{q},t)= E(\vec{p},\vec{q},t)\\
+H(\vec{p},\vec{p},t) = \sum_j  p_j \dot{q}_j  (\vec{p},\vec{q},t)  - L(\vec{p},\vec{\dot{q}}(\vec{p},\vec{q},t),t)
+\end{eqnarray}
+%
+Kanonischer Impuls\\
+$p_{j} = {\frac{{\partial L}}{{\partial \dot q_j }}} = p_j(\vec{q},\vec{\dot q}, t), \dot{q}_j= \dot{q_j}(\vec{q},\vec{\dot{q}}, t)$\\
+%
+\\
+Kanonische Gleichung = Hamilton Bewegungsgleichung\\
+$\dot{p}_i = -\frac{\partial H}{\partial q_i}, \dot{q}_i = \frac{\partial H}{\partial p_i} $\\
+\\
+%
+Hamilton Prinzip = Prinzip der kleinen WIrkung\\
+$\frac{\partial H}{\partial t} = \frac{\partial H}{\partial t}$, falls $\frac{\partial H}{\partial t} = 0 \Rightarrow$ \textbf{Energie Erhalten}
+%
+\section{Noether-Theorem}
+Falls eine Schar von bahnkurven existiert und invariant ist unter den transformierten Koordinanten (es gilt $q(t,\epsilon=0)=q(t))$\\
+%
+$L(q(t,\epsilon)^*,\dot{q}^*(t,\epsilon),t*)  =  L(q(t)*,\dot{q(t)}*,t*)$\\
+es gilt $\frac{d}{d \epsilon} L(q(t,\epsilon)^*,\dot{q}^*(t,\epsilon),t*)=0$\\
+Man benutzt die Euler-Lagrgange-Gleichung:\\
+$\frac{d}{dt}\sum_i \frac{\partial{L}}{\partial \dot{q}_i} \frac{\partial{q_i}}{\partial \epsilon} = \sum_i p_i \frac{\partial{q_i}}{\partial \epsilon} = 0$\\
+%
+\\
+\textbf{Erweitertes Noether-Theorem}\\
+Falls nicht invariant bei transforierten Koordinaten:\\
+$\frac{d }{d \epsilon} (L(q^*(t,\epsilon),\dot{q}^*(t,\epsilon),t^*))_{\epsilon=0}  =  \frac{d }{d t} f(q(t),\dot{q}(t),t)$\\
+Dafür L transofrmieren, ableiten nach Epsilon, anschließend umschreiben in eine totale ableitung der Zeit, falls dies geht gilt noethrer bedingung (SS12)\\
+%
+\\
+Noether-Ladung:\\
+$\sum_i \frac{\partial{L}}{\partial \dot{q}_i} \frac{\partial{q_i}}{\partial \epsilon
+} - f$
+\section{Operatoren}
+Lineare Abbildung:
+\begin{itemize}
+\item Homogen: $f(ax) = af(x) $
+\item Adaptiv: $f(x+y)= f(x) + f(y)$
+\item Homogen und Adaptiv: $f(ax + y) = af(x) + f(y)$ 
+\end{itemize}
+%
+Hermitsch Operator:
+\begin{itemize}
+\item Hermitesch ist: $A^{\dagger}  = (A^*)^T$
+\item Für Hermitesch muss bei Matrix etc. gelten $ A = A^\dagger$
+\item $\int dx f^*(x)[P(g(x)]= \int dx (P[f(x)])^*g(x)$
+\end{itemize}
+%
+Kommutator:\\
+$[a,b]=ab-ba$, $0$ wenn $a$ und $b$ kommutieren also wenn $ab=ba$ gilt.
+\begin{itemize}
+\item  alternierend (antisymmetrisch): $[a,b]=-[b,a]$
+\item Linear: $ [\lambda a+\mu b,c]=\lambda [a,c] + \mu [b,c]$
+\item Jacobi-Identität: $[a,[b,c]]+[b,[c,a]]+[c,[a,b]]=0.$
+\item Produktregel: $[a,bc] = [a,b]c+b[a,c], [ab,c] = a[b,c]+[a,c]b.$
+\end{itemize}
+%
+Imulsoperator:\\
+$<p> = \hat p = -i*h*\frac{\partial}{\partial x}$, für eine ebene Welle $\phi(x)=e^{eik}$. Impulsimporator ist hermitesch\\
+%
+Ortsoperator:\\
+$<x> = \hat x =  \int_{\mathbb{R}} x|phi(x)|^2 dx$. Ist Hermitesch
+%
+Hamilton-Operator (Energieoperator)\\
+$\mathrm i \, \hbar {\partial \over \partial t} \, \psi (t) = \hat H \, \psi (t),\hbar = \frac{h}{2\pi}$\\
+%
+Schrödingergleichung:\\
+Allgemeiner Form: $\mathrm{i}\hbar\frac{\partial}{\partial t} |\,\psi (t) \rangle = \hat{H} |\,\psi (t) \rangle$\\
+%
+Mit Hamilton-Operator: $\mathrm{i}\hbar\frac{\partial}{\partial t} \psi(\mathbf{r},t) = \hat H \psi(\mathbf{r},t)$
+\section{Observable}
+2 Observable sind komperativ wenn sie kommutieren.\\
+%
+Betragsquadrat\\
+$ \frac{\partial \rho}{\partial t} + \operatorname{div} \, \mathbf{j} = 0$\\
+%
+  Wahrscheinlichkeitsstromdichte für das Teiclhen in Ort x zu sein:\\
+$ \mathbf j = -\frac{i \hbar}{2m}(\Psi^*\operatorname{grad}\Psi - \Psi\operatorname{grad}\Psi^*)$\\
+%
+\\
+Normierungsbedingung:\\
+$<\psi|\psi>=\int |\psi(x)|^2=1$\\
+ %
+ Wahrscheinlichkeitsdichte\\
+$\rho(\mathbf r,t)=|\Psi(\mathbf r,t)|^2$\\
+%
+$\phi^2=\phi^*\phi$\\
+$\nabla^2=\Delta$
+
+\section{Harmonishcer Oszilator}
+$\vec(x)=\vec{A}*sin(\omega t + \phi_0)$\\
+$\vec(\dot{x})=\omega\vec{A}*cos(\omega t + \phi_0)$\\
+$\vec(\dot{\dot{x}})=-\omega^2$\\
+%
+Für Eigenfrequenz mussman die Eigenwerte von M berechnen. M kann hierbei die komplette Matrix der Lagrange Funktion sein.\\
+%
+\\
+Alternativ:\\
+$det(K-\omega^2M)=0$, wobei K die Matrix der Ks aus U ist und M die Matrix aus M aus T.\\
+%
+\\
+$\omega=\sqrt{\frac{k}{m}}$\\
+%
+\\
+Anschließend homogenes lineares Gleichungssystem $(K-\omega^2M)\vec(v)=0$ lösen. Ggf normieren $x=\frac{1}{\sqrt{x^2_1+....x^2_n}}$\\
+%
+\section{Konservative Kräfte}
+$[r,r_0]=\int_{r_0}^r F(r) dr \Rightarrow dw = Fdr$\\
+%
+\\
+$\frac{d}{dt}T=mv\dot{v}=vF \Rightarrow dT = VFdt = Fdr = dW$\\
+Spezialfall: $F=-\vec{\nabla}V=\oint Fdr=0$\\
+%
+\section{Mehrere Massenpunkte}
+$mi \ddot{r_i} -- \sum_{i+g} F_{ig} \Rightarrow F_{ig} = - \frac{\partial}{\partial r_i} V([r_i-r_j])$\\
+%
+\\
+$p=\sum_i p_i = \sum_i m_i v_i, L = \sum r_i x p_i$\\
+%
+\section{Wirkung}
+$s = \int_{t_1}^{t_2}L(q,\dot{q},t)dt$, Wirkung zwischen $q(t_1)-q(t_2)$ minimal\\
+%
+\\
+$\delta s \equiv int_{t_1}^{t_2} (\frac{\partial L}{\partial q_i}-\frac{d \partial L}{dt\partial \dot{q}}\delta q, L'=L+\frac{d}{dt}f(\vec{q},t)\Rightarrow \delta s = \delta s'=0$\\
+%
+\section{Phasenraum}
+2n-Dimensionen\\
+%
+\\
+$\dot{x_j}=F_j(\vec{x}(\vec{q,\vec{p}} F_j= \begin{cases}\frac{\partial H}{\partial x_j+f}& 1 \leq j \leq f \\ -\frac{\partial H}{\partial x_j-f} &f+1\leq j \leq 2nk \end{cases}$
+% 
+\section{Lioville-Theorem}
+Schließe von Zustand $t= 0$ auf $t=1$, dabei leibt Volumen gleich. $\vec{x}\rightarrow x(\vec{t}+dt)=g$\\
+%
+\\
+$V(t) = \int f(x)d^{2f} \Rightarrow V(t+dt)=\int |det\frac{\partial g_i}{\partial x_i}|d^{2f} \Rightarrow 0$\\
+%
+\\ 
+$\frac{dV}{dt}=0$\\
+%
+\section{Maxwell-Gleichung}
+$\vec\nabla\cdot\vec{E}= \frac{\rho}{\varepsilon_0}$\\
+%
+\\
+$\vec\nabla\cdot\vec{B}=0$\\
+%
+\\
+$\vec\nabla\times\vec{E}=-\frac{\partial\vec{B}}{\partial t}$\\
+%
+\\
+$\vec\nabla\times\vec{B}= \mu_0\vec{j}+\mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}$\\
+%
+$\underbrace{\vec{B}=\vec\nabla\cdot\vec{a},\vec{E}(\vec{r},t) = -\nabla\phi - \frac{\partial \vec{A}}{\partial t}}{Transformationsinvariant}$\\
+%
+\\
+Vakuum: $\rho = 0, \vec{j}=0$\\
+$\vec\nabla\times\vec{B}=\mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}$\\
+$\vec\nabla\times\vec{E}=-\frac{\partial\vec{B}}{\partial t}$\\
+\section{Wellengleichung}
+$\psi(t)=(\vec{\nabla})^2\vec{E}-\frac{1}{c^2}\frac{\partial^2 \vec{E}}{\partial t^2}=0, c=\frac{1}{\sqrt{\varepsilon_0\mu_0}}$\\
+%
+\\
+lösungen:\\
+transversal $\Rightarrow \vec{E}= \vec{E_k}e^[i\vec{k}\vec{r-\omega t}$\\
+longitunal $\Rightarrow \vec{B}=\vec{B_k}e^[i\vec{k}\vec{r-\omega t}$\\
+mit: $\omega = c|\vec{k}|$\\
+%
+\\
+$\psi(t)$ nicht Galilei invariant $\Rightarrow k \rightarrow k' \phi(t)= \neq\phi(t)$\\
+%
+\section{Zeitdilatation}
+$dt'=dt\sqrt{1-\frac{V^2}{c^2}}, t \equiv bewegter Uhr$\\
+%
+\section{Längenkontration}
+$dl'=dl\sqrt{1-\frac{V^2}{c^2}}, l \equiv$ Strecke aus Sicht der Bewegung\\
+%
+\section{Energie}
+$E=\vec{p}\vec{v}$\\
+$L=\frac{m \, c^2}{\sqrt{1-\frac{v^2}{c^2}}}\approx mc^2+\frac{1}{2}mv^2, E^2= m^2c^4+c^2p^2$\\
+%
+\section{4-Impuls}
+$p_i=\frac{\partial L}{\partial v_i}= \frac{mv_i}{\sqrt{1-\frac{v^2}{c^2}}}$\\
+%
+\\
+$p^\mu = (\frac{E}{c},vec{v})= \frac{m(c,\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}$\\
+%
+\section{Eigenzeit}
+$T=t\sqrt{1-\frac{v^2}{c^2}}$
+\end{document}
