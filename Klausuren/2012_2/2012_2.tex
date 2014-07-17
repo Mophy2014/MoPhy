@@ -56,10 +56,10 @@ Es ist also
 			&\Big(= \int_{-\infty}^{\infty} x |\psi(x)|^2\:dx\Big)
 \end{align*}
 Da $\braket{x}$ nicht von $t$ abhängt, ist
-\begin{align}
+\begin{align*}
 \braket{p}	&= \frac{d\braket{x}}{dt} \\
 			&= 0
-\end{align}
+\end{align*}
 
 \item Überprüfen Sie Heisenbergs Prinzip
 \[(\Delta x)^2(\Delta p)^2\geq\frac{\hbar^2}{4}\]
@@ -77,10 +77,68 @@ Berechne zuerst $\braket{x^2}$ und $\braket{p^2}$:
 				\:(\hat a\hat a + 2 \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
 				(N_1 \ket 1 + N_2 \ket 2)		\\
 \end{align*}
+\end{enumerate}
+
+\section{Teilchen mit Spin im magnetischen Feld}
+Betrachten Sie ein Elektron in einem Überlagerungszustand durch
+\[\psi=\frac{1}{\sqrt 2}\begin{pmatrix}\frac{1+\sqrt 3}{2}\\\frac{1-\sqrt 3}{2}\end{pmatrix}\]
+
+\begin{enumerate}[a)]
+\item Bestimmen Sie die Wahrscheinlichkeit im Zustand $\psi$ Spin $\frac{\hbar}{2}$ in $x$- bzw. $y$-Richtung zu messen.
+\item[Lösung:]
+Wahrscheinlichkeit im Zustand $\psi$ den Spin $\frac\hbar 2$ in $x$-Richtung zu messen:
 \begin{align*}
-%TODO
+\braket{\psi|S_x|\psi}	
+	&= 
+	\left(\frac 1{\sqrt 2} \begin{pmatrix}\frac{1+\sqrt 3}{2} & \frac{1-\sqrt 3}{2}\end{pmatrix}\right)^\ast
+	\frac \hbar 2 \begin{pmatrix} 0&1\\1&0 \end{pmatrix}
+	\frac 1{\sqrt 2}\begin{pmatrix}\frac{1+\sqrt 3}{2}\\\frac{1-\sqrt 3}{2}\end{pmatrix}\\
+	&= 	
+	\frac \hbar 4 \begin{pmatrix}\frac{1+\sqrt 3}{2} & \frac{1-\sqrt 3}{2}\end{pmatrix}
+	\begin{pmatrix} 0&1\\1&0 \end{pmatrix}
+	\begin{pmatrix}\frac{1+\sqrt 3}{2}\\\frac{1-\sqrt 3}{2}\end{pmatrix}\\
+	&=
+	\frac \hbar {16} \begin{pmatrix}1+\sqrt 3 & 1-\sqrt 3\end{pmatrix}
+	\begin{pmatrix}1-\sqrt 3\\1+\sqrt 3\end{pmatrix}\\
+	&=
+	\frac \hbar {16} 2 (1 + 3) = \frac \hbar 2
+\end{align*}
+Genauso für die $y$-Richtung:
+\begin{align*}
+\braket{\psi|S_y|\psi}	
+	&= 
+	\left(\frac 1{\sqrt 2} \begin{pmatrix}\frac{1+\sqrt 3}{2} & \frac{1-\sqrt 3}{2}\end{pmatrix}\right)^\ast
+	\frac \hbar 2 \begin{pmatrix} 0&-i\\i&0 \end{pmatrix}
+	\frac 1{\sqrt 2}\begin{pmatrix}\frac{1+\sqrt 3}{2}\\\frac{1-\sqrt 3}{2}\end{pmatrix}\\
+	&= 	
+	\frac \hbar 4 \begin{pmatrix}\frac{1+\sqrt 3}{2} & \frac{1-\sqrt 3}{2}\end{pmatrix}
+	\begin{pmatrix} 0&-i\\i&0 \end{pmatrix}
+	\begin{pmatrix}\frac{1+\sqrt 3}{2}\\\frac{1-\sqrt 3}{2}\end{pmatrix}\\
+	&=
+	\frac \hbar {16} \begin{pmatrix}1+\sqrt 3 & 1-\sqrt 3\end{pmatrix}
+	\begin{pmatrix}-i+i\sqrt 3\\i+i\sqrt 3\end{pmatrix}\\
+	&=
+	\frac {i\hbar}{16} \begin{pmatrix}1+\sqrt 3 & 1-\sqrt 3\end{pmatrix}
+	\begin{pmatrix}-1+\sqrt 3\\1+\sqrt 3\end{pmatrix}\\
+	&=
+	\frac {i\hbar}{16} (-1 + \sqrt 3 -\sqrt 3 + 3 + 1 + \sqrt 3  -\sqrt 3 -3) \\
+	&=
+	\frac{i\hbar}{16} 0 = 0
 \end{align*}
 
+\item Das Teilchen ruht in einem homogenen magnetischen Feld $\vec B = B_0 e_z$. Der Hamiltonoperator lautet
+\[\hat H = -\vec \mu \vec B = \frac em \vec S \vec B \]
+Berechnen Sie die Eigenvektoren und die Eigenwerte (Energien $E_1, E_2$) von $\hat H$. Ist $\psi$ ein stationärer Zustand? Begründen Sie!
+\item[Lösung:]
+\begin{align*}
+\hat H &= \frac em \vec S \vec B = \frac em \vec S B_0 e_x = \frac em B_0 S_x = \frac em B_0 \frac \hbar 2 \begin{pmatrix}0&1\\1&0\end{pmatrix} \\
+&= \frac{e\hbar B_0}{2m}\begin{pmatrix}0&1\\1&0\end{pmatrix}
+\end{align*}
+$\sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix}$ hat die Eigenwerte $\lambda_1 = 1, \lambda_2 = -1$, also ist
+\begin{align*}
+E_1 &=  \frac{e\hbar B_0}{2m}\\
+E_2 &= -\frac{e\hbar B_0}{2m}
+\end{align*}
 \end{enumerate}
 
 
