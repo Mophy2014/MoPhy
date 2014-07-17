@@ -3,9 +3,10 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{braket}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx}
-\author{Patrick Petersen}
+\author{Pascal Bies, Daniel Kosinksi, Patrick Petersen}
 \title{Moderne Physik für Informatiker Zusammenfassung}
 \begin{document}
 \maketitle
@@ -334,16 +335,30 @@ $T=t\sqrt{1-\frac{v^2}{c^2}}$
 %
 \section{New Stuff}
 \subsection{Delta-Funktion}
+$\int \rho(q)dq=1$, falls $f(q)$ stetig\\
+$\int \rho(q-q_0)f(q)dq=f(q_0)$\\
 %
 \subsection{Gauss Verteilung}
+$\Psi = Ne^{ik_0x}e^{\frac{(x-x_0)^2}{4b^2}}, N = \frac{1}{(2\pi b^2)^{1/4}}$\\
+Erwartungswert:\\
+$\Braket{x}=\Braket{\Psi|x|\Psi} = N^2\int (y+y_0)\underbrace{e^{\frac{-y^2}{2b^2}}}_{a}dy \Rightarrow y*a = 0 \Rightarrow \Braket{\Psi|x|\Psi} = x_0$\\
+Variation:\\
+$(\Delta x)^2 = \Braket{x^2} - \Braket{x}^2=\Braket{[x????-\Braket{x}^2]}\Rightarrow  (\Delta x)^2 = b^2 \Rightarrow b$ ist Breite der Verteilung\\
+$(\Delta p)^2=\hbar(\Delta k)^2 = \hbar^2 c^2=\frac{\hbar^2}{4b^2}$\\
 %
 \subsection{Unschärfe Relation}
+$\Delta x \Delta p= \frac{\hbar}{2}$\\
 %
 \subsection{Wellenpakete}
+$t=0 \Psi(x) = \int \frac{dk}{2\pi}g(k)e^{ikx}, H = \frac{p^2}{2m}$\\
+$t>0 \Psi(x,t = \int \frac{dk}{2\pi}g(k)e^{ikx}e^{-i\omega(k)t},\hbar\omega(k) = \frac{p^2}{2m}=\frac{\hbar^2 k^2}{2m}$\\
 %
 \subsection{Gruppengeschwindigkeit}
+$v_g=\frac{\partial\omega(k)}{\partial k}|k_0$
 %
 \subsection{Dispersion}
+\includegraphics[scale=0.1]{Pictures/Dispersion.jpg}\\
+$(\Delta x)^2(\Delta p)^2 = \frac{\hbar}{4}(1+\frac{a^2 t^2}{b^a}, a = \frac{1}{2}\frac{\partial^2\omega(k)}{\partial k^2}$
 %
 \subsection{Gebundene Zustände}
 $\Psi(x,t)=\Psi(x,t)e^{\frac{-Et}{\hbar}}\Rightarrow \hat{H} \Psi(x,t)=E\Psi(x)$, mit Potential $\hat{H}=\frac{\hat{p}^2}{2m}+V(x)$\\
