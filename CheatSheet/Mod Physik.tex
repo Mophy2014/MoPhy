@@ -3,9 +3,10 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{braket}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx}
-\author{Patrick Petersen}
+\author{Pascal Bies, Daniel Kosinksi, Patrick Petersen}
 \title{Moderne Physik für Informatiker Zusammenfassung}
 \begin{document}
 \maketitle
@@ -331,4 +332,69 @@ $p^\mu = (\frac{E}{c},vec{v})= \frac{m(c,\vec{v}}{\sqrt{1-\frac{v^2}{c^2}}}$\\
 %
 \subsection{Eigenzeit}
 $T=t\sqrt{1-\frac{v^2}{c^2}}$
+%
+\section{New Stuff}
+\subsection{Delta-Funktion}
+$\int \rho(q)dq=1$, falls $f(q)$ stetig\\
+$\int \rho(q-q_0)f(q)dq=f(q_0)$\\
+%
+\subsection{Gauss Verteilung}
+$\Psi = Ne^{ik_0x}e^{\frac{(x-x_0)^2}{4b^2}}, N = \frac{1}{(2\pi b^2)^{1/4}}$\\
+Erwartungswert:\\
+$\Braket{x}=\Braket{\Psi|x|\Psi} = N^2\int (y+y_0)\underbrace{e^{\frac{-y^2}{2b^2}}}_{a}dy \Rightarrow y*a = 0 \Rightarrow \Braket{\Psi|x|\Psi} = x_0$\\
+Variation:\\
+$(\Delta x)^2 = \Braket{x^2} - \Braket{x}^2=\Braket{[x????-\Braket{x}^2]}\Rightarrow  (\Delta x)^2 = b^2 \Rightarrow b$ ist Breite der Verteilung\\
+$(\Delta p)^2=\hbar(\Delta k)^2 = \hbar^2 c^2=\frac{\hbar^2}{4b^2}$\\
+%
+\subsection{Unschärfe Relation}
+$\Delta x \Delta p= \frac{\hbar}{2}$\\
+%
+\subsection{Wellenpakete}
+$t=0 \Psi(x) = \int \frac{dk}{2\pi}g(k)e^{ikx}, H = \frac{p^2}{2m}$\\
+$t>0 \Psi(x,t = \int \frac{dk}{2\pi}g(k)e^{ikx}e^{-i\omega(k)t},\hbar\omega(k) = \frac{p^2}{2m}=\frac{\hbar^2 k^2}{2m}$\\
+%
+\subsection{Gruppengeschwindigkeit}
+$v_g=\frac{\partial\omega(k)}{\partial k}|k_0$
+%
+\subsection{Dispersion}
+\includegraphics[scale=0.1]{Pictures/Dispersion.jpg}\\
+$(\Delta x)^2(\Delta p)^2 = \frac{\hbar}{4}(1+\frac{a^2 t^2}{b^a}, a = \frac{1}{2}\frac{\partial^2\omega(k)}{\partial k^2}$
+%
+\subsection{Gebundene Zustände}
+$\Psi(x,t)=\Psi(x,t)e^{\frac{-Et}{\hbar}}\Rightarrow \hat{H} \Psi(x,t)=E\Psi(x)$, mit Potential $\hat{H}=\frac{\hat{p}^2}{2m}+V(x)$\\
+Falls V(x) stückweise konstant, löse:\\
+$V(x)=V_1 x_1 \leq x < x_2, ---$\\
+$\hat{H}\Psi(x)=(E-V_n)\Psi(x)$ Lösungen: $e^{ikx}, k =\pm\sqrt{\frac{2m(E-V_n}{\hbar^2}}$\\
+%
+\subsection{Randbedingungen}
+$\Psi(x),\frac{\partial x\Psi(x)}{\Psi x} \in C^1$\\
+%
+\subsection{Streuzustände}
+nicht normiert, ebene Wellen für $x\rightarrow \infty$  und/oder $x\rightarrow -\infty$\\
+$\Psi(x)=e^{ikx}$, Amplitude 1\\
+$\vec{j}=\frac{\hbar k}{m}=v_g, p = |\Psi|^2=1\Rightarrow j = p v_g = v_g$\\
+Welche Anteile werden reflektiert (zurück gestreut) oder gehen weiter (vorwärts gestreut)\\
+%
+\subsection{Potential Barriere}
+%
+Breite a, für $x<a$ (I) und $x > a$ (III) $\Rightarrow V(x)=0$\\
+$0\leq x$ (II) $\leq a \Rightarrow V(x)=V_0$\\
+I+III: $k_1=k_3=\sqrt{\frac{2mE}{\hbar^2}}$ Wellenvektor\\
+II: $k_2=\sqrt{\frac{2m(E-V_0}{\hbar}}, k \in \mathbb{R}$ falls $E>V_0$, sonst $k_2\in \mathbb{C}$\\
+%
+\\
+$\Psi_I(x)=e^{ik_1x}+\underbrace{\gamma e^{-ik_1x}}_{Reflexieren}, \gamma = A+B-1$\\
+$\Psi_{II}(x)=Ae^{ik_2x}+be^{ik_2x},A= \frac{te^{-ik_1x}}{2}(1+\frac{k_1}{k_2}),B=\frac{te^{ik_2x}}{2}(1+\frac{k_1}{k_2})$\\
+$\Psi_{III}(x)=\underbrace{t}_{Transsmission}e^{ik_3(x-a)}$\\
+%
+\\
+Für $E > V_0$\\
+$|t|^2=\frac{UE(E-V_0)}{UE(E-V_0)+V_0^2\sin^2(k_2a)}$\\
+%
+\\
+Für $E < V_0$\\
+$|t|^2=\frac{UE(E-V_0)}{UE(E-V_0)+V_0^2\sinh^2(ka)}$\\
+%
+\\
+mit: $k=\sqrt{\frac{2m(V_0-E}{\hbar}}$
 \end{document}
