@@ -6,6 +6,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{braket}
 
+\newcommand{\Sx}{\begin{pmatrix}0&1\\1&0\end{pmatrix}}
+\newcommand{\vecz}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+
+\allowdisplaybreaks % allow breaking align enviornment over multiple pages
+
 \begin{document}
 
 \section{Harmonischer Oszillator}
@@ -64,19 +69,57 @@ Da $\braket{x}$ nicht von $t$ abhängt, ist
 \item Überprüfen Sie Heisenbergs Prinzip
 \[(\Delta x)^2(\Delta p)^2\geq\frac{\hbar^2}{4}\]
 \item[Lösung:]
-Berechne zuerst $\braket{x^2}$ und $\braket{p^2}$:
+Zunächst bemerken wir, dass
+\begin{align*}
+\hat x &= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} (\hat a + \hat a^\dagger)		\\
+\Rightarrow \hat x^2 	&= \Big( \frac 12 \sqrt{\frac{2\hbar}{m\omega}} (\hat a + \hat a^\dagger) \Big)^2 	\\
+						&= \frac 12 \frac{\hbar}{m\omega}(\hat a + \hat a^\dagger)^2 \\
+\end{align*}
+Berechne dann $\braket{x^2}$:
 \begin{align*}
 \braket{x^2}	&= \braket{\psi|\hat x^2|\psi}		\\
-				&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} \psi^\ast (\hat a + \hat a^\dagger)^2 \psi	\\
-				&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} 
+				&= \frac 12 \frac{\hbar}{m\omega} \psi^\ast (\hat a + \hat a^\dagger)^2 \psi	\\
+				&= \frac 12 \frac{\hbar}{m\omega} 
 				(N_0^\ast\bra 0 + N_1^\ast \bra 1 + N_2^\ast \bra 2)
 				\:(\hat a\hat a + 2 \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
-				(N_0\ket 0 + N_1 \ket 1 + N_2 \ket 2)		\\
-				&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} 
-				(N_1^\ast \bra 1 + N_2^\ast \bra 2)
-				\:(\hat a\hat a + 2 \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
+				(N_0\ket 0 + N_1 \ket 1 + N_2 \ket 2)
+\intertext{Es ist wieder $N_0^\ast=N_0=0$ und $N_1^\ast = N_1, N_2^\ast = N_2$}
+				&= \frac 12 \frac{\hbar}{m\omega}
+				(N_1 \bra 1 + N_2 \bra 2)
+				\:(\hat a\hat a + \hat a^\dagger \hat a + \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
 				(N_1 \ket 1 + N_2 \ket 2)		\\
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big(	\\
+				&\qquad\phantom +\:\: (N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a(N_1\ket 1 +N_2\ket 2) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a^\dagger(N_1\ket 1 +N_2\ket 2) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a(N_1\ket 1 +N_2\ket 2) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a^\dagger(N_1\ket 1 +N_2\ket 2) \Big)\\
+				%
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big(	\\
+				&\qquad\phantom +\:\: (N_1 \bra 1 + N_2 \bra 2)\:\hat a(N_1\ket 0 + \sqrt 2 N_2\ket 1) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a(\sqrt 2 N_1\ket 2 +\sqrt 3 N_2\ket 3) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger(N_1\ket 0 +\sqrt 2 N_2\ket 1) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger(\sqrt 2 N_1\ket 2 + \sqrt 3 N_2\ket 3) \Big)\\
+				%
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big(	\\
+				&\qquad\phantom +\:\: (N_1 \bra 1 + N_2 \bra 2)\:(N_1\cdot 0  + \sqrt 2 N_2\ket 0) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:(\sqrt 2 \sqrt 2 N_1\ket 1 + \sqrt 3 \sqrt 3 N_2\ket 2) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:(N_1\ket 1 +\sqrt 2 \sqrt 2  N_2\ket 2) \\
+				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:(\sqrt 2 \sqrt 3 N_1\ket 3 + \sqrt 3 \sqrt 4 N_2\ket 4) \Big) \\
+				%
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big( 0 + (2 N_1 N_1 + 3 N_2 N_2)  + (N_1 N_1 + 2 N_2 N_2) + 0\Big) \\
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big( 3 N_1^2 + 5 N_2^2\Big) \\
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big( 3 \frac 34 + 5 \frac 14 \Big) \\
+				&=  \frac 74 \frac{\hbar}{m\omega}\\
+\intertext{Integration von $\int_{-\infty}^{\infty} \psi^\ast(x) \hat x^2 \psi(x)\:dx$ ergibt das Gleiche (mit CAS)}
 \end{align*}
+Bei der Lösung ist es enorm hilfreich, dass $\braket{i|j} = \delta_{i,j}$, d.h. fast alle Brakets fallen weg. Man kann sich außerdem überlegen, wie $\hat a \hat a, \hat a\hat a^\dagger, \dots$ aussehen und spart sich damit einen Zwischenschritt und viel Schreibarbeit.
+
+Berechne nun $\braket{p^2}$. Dazu müssen wir zunächst überlegen, wie $\hat p^2$ in Ortsdarstellung aussieht.
+\begin{align*}
+\braket{p}	&= ? \cdot \hat a - \hat a^\dagger\\	%TODO
+\end{align*}
+
+
 \end{enumerate}
 
 \section{Teilchen mit Spin im magnetischen Feld}
@@ -132,13 +175,31 @@ Berechnen Sie die Eigenvektoren und die Eigenwerte (Energien $E_1, E_2$) von $\h
 \item[Lösung:]
 \begin{align*}
 \hat H &= \frac em \vec S \vec B = \frac em \vec S B_0 e_x = \frac em B_0 S_x = \frac em B_0 \frac \hbar 2 \begin{pmatrix}0&1\\1&0\end{pmatrix} \\
-&= \frac{e\hbar B_0}{2m}\begin{pmatrix}0&1\\1&0\end{pmatrix}
+&= \frac{e\hbar B_0}{2m}\Sx
 \end{align*}
+
+Eigenwerte $E_i$ von $\hat  H$ erfüllen
+\begin{align*}
+\hat H \psi_n						&= E_i \psi_n			\\
+\frac{e\hbar B_0}{2m}\Sx \psi_n
+&= 
+E_i \psi_n
+\end{align*}
+
 $\sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix}$ hat die Eigenwerte $\lambda_1 = 1, \lambda_2 = -1$, also ist
 \begin{align*}
-E_1 &=  \frac{e\hbar B_0}{2m}\\
-E_2 &= -\frac{e\hbar B_0}{2m}
+E_1 =  \frac{e\hbar B_0}{2m}, \qquad& \psi_1 \in \left[\vecz 11 \right]\\
+E_2 = -\frac{e\hbar B_0}{2m}, \qquad& \psi_2 \in \left[\vecz {-1}1 \right]
 \end{align*}
+Offensichtlich ist $\psi$ weder im Eigenraum $\left[\vecz 11 \right]$ noch im Eigenraum $\left[\vecz {-1}1 \right]$ enthalten deshalb kein Eigenvektor und nicht stationär.
+
+
+\item Bestimmen Sie nun die Wahrscheinlichkeit im Zustand $\psi$ die Energie $E_1$ bzw. $E_2$ zu messen. Geben Sie anschließend den Mittelwert der Energien
+\[\braket{E} = \braket{\psi|E|\psi}\]
+an.
+
+
+
 \end{enumerate}
 
 
