@@ -72,8 +72,10 @@ Da $\braket{x}$ nicht von $t$ abhängt, ist
 Zunächst bemerken wir, dass
 \begin{align*}
 \hat x &= \frac 12 \sqrt{\frac{2\hbar}{m\omega}} (\hat a + \hat a^\dagger)		\\
-\Rightarrow \hat x^2 	&= \Big( \frac 12 \sqrt{\frac{2\hbar}{m\omega}} (\hat a + \hat a^\dagger) \Big)^2 	\\
-						&= \frac 12 \frac{\hbar}{m\omega}(\hat a + \hat a^\dagger)^2 \\
+\Rightarrow \hat x^2 	&= \frac 12 \frac{\hbar}{m\omega}(\hat a + \hat a^\dagger)^2 \\
+\hat{p}	&= \frac{\sqrt {2\hbar m \omega}}{2i} (\hat a - \hat a^\dagger) \\
+\Rightarrow \hat p^2
+			&= -\frac{\hbar m \omega}{2} (\hat a - \hat a^\dagger)^2
 \end{align*}
 Berechne dann $\braket{x^2}$:
 \begin{align*}
@@ -81,30 +83,39 @@ Berechne dann $\braket{x^2}$:
 				&= \frac 12 \frac{\hbar}{m\omega} \psi^\ast (\hat a + \hat a^\dagger)^2 \psi	\\
 				&= \frac 12 \frac{\hbar}{m\omega} 
 				(N_0^\ast\bra 0 + N_1^\ast \bra 1 + N_2^\ast \bra 2)
-				\:(\hat a\hat a + 2 \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
+				\:(\hat a\hat a + \hat a^\dagger \hat a + \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
 				(N_0\ket 0 + N_1 \ket 1 + N_2 \ket 2)
 \intertext{Es ist wieder $N_0^\ast=N_0=0$ und $N_1^\ast = N_1, N_2^\ast = N_2$}
 				&= \frac 12 \frac{\hbar}{m\omega}
 				(N_1 \bra 1 + N_2 \bra 2)
 				\:(\hat a\hat a + \hat a^\dagger \hat a + \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
 				(N_1 \ket 1 + N_2 \ket 2)		\\
-				&=  \frac 12 \frac{\hbar}{m\omega} \Big(	\\
-				&\qquad\phantom +\:\: (N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a(N_1\ket 1 +N_2\ket 2) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a^\dagger(N_1\ket 1 +N_2\ket 2) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a(N_1\ket 1 +N_2\ket 2) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a^\dagger(N_1\ket 1 +N_2\ket 2) \Big)\\
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big(	
+				(N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a(N_1\ket 1 +N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					 + (N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a^\dagger(N_1\ket 1 +N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a(N_1\ket 1 +N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a^\dagger(N_1\ket 1 +N_2\ket 2) \Big)\\
 				%
-				&=  \frac 12 \frac{\hbar}{m\omega} \Big(	\\
-				&\qquad\phantom +\:\: (N_1 \bra 1 + N_2 \bra 2)\:\hat a(N_1\ket 0 + \sqrt 2 N_2\ket 1) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a(\sqrt 2 N_1\ket 2 +\sqrt 3 N_2\ket 3) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger(N_1\ket 0 +\sqrt 2 N_2\ket 1) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger(\sqrt 2 N_1\ket 2 + \sqrt 3 N_2\ket 3) \Big)\\
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big(
+					(N_1 \bra 1 + N_2 \bra 2)\:\hat a(N_1\ket 0 + \sqrt 2 N_2\ket 1) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:\hat a(\sqrt 2 N_1\ket 2 +\sqrt 3 N_2\ket 3) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger(N_1\ket 0 +\sqrt 2 N_2\ket 1) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger(\sqrt 2 N_1\ket 2 + \sqrt 3 N_2\ket 3) \Big)\\
 				%
-				&=  \frac 12 \frac{\hbar}{m\omega} \Big(	\\
-				&\qquad\phantom +\:\: (N_1 \bra 1 + N_2 \bra 2)\:(N_1\cdot 0  + \sqrt 2 N_2\ket 0) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:(\sqrt 2 \sqrt 2 N_1\ket 1 + \sqrt 3 \sqrt 3 N_2\ket 2) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:(N_1\ket 1 +\sqrt 2 \sqrt 2  N_2\ket 2) \\
-				&\qquad		    + (N_1 \bra 1 + N_2 \bra 2)\:(\sqrt 2 \sqrt 3 N_1\ket 3 + \sqrt 3 \sqrt 4 N_2\ket 4) \Big) \\
+				&=  \frac 12 \frac{\hbar}{m\omega} \Big(
+					(N_1 \bra 1 + N_2 \bra 2)\:(N_1\cdot 0  + \sqrt 2 N_2\ket 0) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:(\sqrt 2 \sqrt 2 N_1\ket 1 + \sqrt 3 \sqrt 3 N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:(N_1\ket 1 +\sqrt 2 \sqrt 2  N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:(\sqrt 2 \sqrt 3 N_1\ket 3 + \sqrt 3 \sqrt 4 N_2\ket 4) \Big) \\
 				%
 				&=  \frac 12 \frac{\hbar}{m\omega} \Big( 0 + (2 N_1 N_1 + 3 N_2 N_2)  + (N_1 N_1 + 2 N_2 N_2) + 0\Big) \\
 				&=  \frac 12 \frac{\hbar}{m\omega} \Big( 3 N_1^2 + 5 N_2^2\Big) \\
@@ -114,12 +125,67 @@ Berechne dann $\braket{x^2}$:
 \end{align*}
 Bei der Lösung ist es enorm hilfreich, dass $\braket{i|j} = \delta_{i,j}$, d.h. fast alle Brakets fallen weg. Man kann sich außerdem überlegen, wie $\hat a \hat a, \hat a\hat a^\dagger, \dots$ aussehen und spart sich damit einen Zwischenschritt und viel Schreibarbeit.
 
-Berechne nun $\braket{p^2}$. Dazu müssen wir zunächst überlegen, wie $\hat p^2$ in Ortsdarstellung aussieht.
 \begin{align*}
-\braket{p}	&= ? \cdot \hat a - \hat a^\dagger\\	%TODO
+\braket{p^2}	&= \braket{\psi|\hat p^2|\psi}		\\
+				&= -\frac{\hbar m \omega}{2} \psi^\ast(\hat a - \hat a^\dagger)^2\psi	\\
+				&= -\frac{\hbar m \omega}{2}
+				(N_0^\ast\bra 0 + N_1^\ast \bra 1 + N_2^\ast \bra 2)
+				\:(\hat a\hat a - \hat a^\dagger \hat a - \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
+				(N_0\ket 0 + N_1 \ket 1 + N_2 \ket 2)
+\intertext{Es ist wieder $N_0^\ast=N_0=0$ und $N_1^\ast = N_1, N_2^\ast = N_2$}
+				&= -\frac{\hbar m \omega}{2}
+				(N_1 \bra 1 + N_2 \bra 2)
+				\:(\hat a\hat a - \hat a^\dagger \hat a - \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
+				(N_1 \ket 1 + N_2 \ket 2)		\\
+				&= -\frac{\hbar m \omega}{2}
+				(N_1 \bra 1 + N_2 \bra 2)
+				\:(\hat a\hat a + \hat a^\dagger \hat a + \hat a \hat a^\dagger + \hat a^\dagger\hat a^\dagger)\:
+				(N_1 \ket 1 + N_2 \ket 2)		\\
+				&=  -\frac{\hbar m \omega}{2}  \Big(
+					(N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a(N_1\ket 1 +N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					- (N_1 \bra 1 + N_2 \bra 2)\:\hat a\hat a^\dagger(N_1\ket 1 -N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					- (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a(N_1\ket 1 -N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger\hat a^\dagger(N_1\ket 1 +N_2\ket 2) \Big)\\
+				%
+				&=  -\frac{\hbar m \omega}{2}  \Big(
+					(N_1 \bra 1 + N_2 \bra 2)\:\hat a (N_1\ket 0 + \sqrt 2 N_2\ket 1) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					- (N_1 \bra 1 + N_2 \bra 2)\:\hat a (\sqrt 2 N_1\ket 2 - \sqrt 3 N_2\ket 3) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					- (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger (N_1\ket 0 - \sqrt 2 N_2\ket 1) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:\hat a^\dagger (\sqrt 2 N_1\ket 2 + \sqrt  3 N_2\ket 3) \Big)\\	
+				%
+				&=  -\frac{\hbar m \omega}{2}  \Big(
+					(N_1 \bra 1 + N_2 \bra 2)\:(0 + \sqrt 2 N_2\ket 0) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					- (N_1 \bra 1 + N_2 \bra 2)\: (\sqrt 2 \sqrt 2 N_1\ket 1 - \sqrt 3 \sqrt 3  N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					- (N_1 \bra 1 + N_2 \bra 2)\: (N_1\ket 1 - \sqrt 2 \sqrt 2 N_2\ket 2) \\
+				&\phantom{=\frac 12 \frac{\hbar}{m\omega} \Big(}
+					+ (N_1 \bra 1 + N_2 \bra 2)\:(\sqrt 2 \sqrt 3 N_1\ket 3 + \sqrt  3 \sqrt 4 N_2\ket 4) \Big)\\		
+				%
+				&=  -\frac{\hbar m \omega}{2}  \Big(
+					0 -(2N_1^2 + 3 N_2^2) - (N_1^2 + 2 N_2^2) + 0
+				\Big)\\	
+				&= \frac{\hbar m \omega}{2}  \Big( 3N_1^2 + 5 N_2^2 \Big)\\
+				&= \frac{\hbar m \omega}{2} \Big( 3\frac{3}{4} + 5 \frac{1}{4} \Big) \\
+				&= \frac 74 \hbar m \omega \\
 \end{align*}
 
-
+Damit ist 
+\begin{align*}
+\Delta x	&= \sqrt{\braket{x^2}-\braket{x}^2}	\\
+			&= \sqrt{\frac 74 \frac{\hbar}{m\omega} - \frac{3\hbar}{2m\omega}} \\
+			&= \frac{1}{2}\sqrt{\frac{\hbar}{m\omega}} \\
+\Delta p	&= \sqrt{\braket{p^2}-\braket{p}^2}	\\
+			&= \sqrt{\braket{p^2}-0}	\\
+			&= \sqrt{\frac 74 \hbar m \omega}
+\end{align*}
+\[(\Delta x)^2 (\Delta p)^2 = \frac{7}{16}\hbar^2 \leq \frac{8}{16}\hbar^2 = \frac{\hbar^2}{2}\]
 \end{enumerate}
 
 \section{Teilchen mit Spin im magnetischen Feld}
