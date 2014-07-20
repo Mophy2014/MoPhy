@@ -12,57 +12,6 @@
 \allowdisplaybreaks % allow breaking align enviornment over multiple pages
 
 \begin{document}
-\section{Lagrangegleichungen}
-
-Betrachten sie ein gekoppeltes Pendel in einer Ebene mit der Masse $m_1$ und der Länge des Seiles $l_1$, auf dessen ein weiteres Pendel befestigt ist (Masse $m_2$ und Seillänge $l_2$).
-
-\begin{enumerate}[a)]
-\item Wie lautet die potentielle Energie des Systems im Schwerefeld (Schwerkraft auf wirkend auf einer Masse $F_z = -mg$)?
-
-\item[Lösung:]
-Da beide Massen mit einander verbunden sind, wirkt auf der zweiten Masse eine Kraft abhängig vom Ort der ersten Masse. Insgesamt gilt:
-\[V = m_1gz_1 + m_2gz_2(z_1)\]
-
-
-\item Schreiben sie die Lagrange-Funktion L des Systems hin, mit Hilfe von Polarkoordinaten.
-
-\item[Lösung:]
-Als erstes beschreibt man die Position und Geschwindigkeit der Massen durch verallgemeinerte Koordinaten.
-\begin{align*}
-x_1 = \sin(\phi_1) l_1, \qquad& x_2 = \sin(\phi_2) l_2 + x_1 \\
-z_1 = \cos(\phi_1) l_1, \qquad& z_2 = \cos(\phi_1) l_1 + z_1
-\\
-\dot{x_1} = \cos(\phi_1) l_1 \dot{\phi_1}, \qquad& 
-\dot{x_2} =  \cos(\phi_2) l_2 \dot{\phi_2} + \dot{x_1} \\
-\dot{z_1} = -\sin(\phi_1) l_1 \dot{\phi_1}, \qquad& 
-\dot{z_2} = -\sin(\phi_2) l_2 \dot{\phi_2} + \dot{z_1} \\
-v_1^2 = \dot{x_1} + \dot{z_1} \qquad& v_2^2 = \dot{x_2} + \dot{z_2}
-\end{align*}
-Danach stellt man die potentielle und kinetische Energie je Masse auf.
-\begin{align*}
-V_1 = -m_1g \cos(\phi_1) l_1, \qquad& 
-V_2 = -m_2g(\cos(\phi_1) l_1 + z_1) \\
-T_1 = \frac{1}{2} m_1 v_1^2 = \frac{1}{2} m_1 l_1^2 \dot{\phi_1^2} \qquad&
-T_2 = \frac{1}{2} m_1 v_2^2 = \frac{1}{2} m_2 (l_1^2\dot{\phi_1^2} + l_2^2\dot{\phi_2^2} + 2l_1l_2\dot{\phi_1}\dot{\phi_2}\cos(\phi_1 - \phi_2)
-\end{align*}
-Somit ergibt sich die Lagrange-Funtkion L:
-\begin{align*}
-L &= T_1 + T_2 + V_1 + V_2\\
-&= \frac{1}{2}((m_1 + m_2)l_1^2\dot{\phi_1^2} + m_2l_2^2\dot{\phi_2^2} + 2m_2l_1l_2\dot{\phi_1^2}\dot{\phi_2^2}\cos(\phi_1 - \phi_2)) + g((m_1 + m_2)l_1\cos(\phi_1) + m_2l_2\cos(\phi_2))
-\end{align*}
-\item Benutzen Sie Die Lagrangegleichungen um die Bewegungsgleichungen herzuleiten. Zur Erinnerung:
-\[\frac{d}{dt}(\frac{\delta L}{\delta\dot{q_a}}) - \frac{\delta L}{\delta q_a} = 0\]
-
-\item[Lösung:]
-\begin{align*}
-\frac{d}{dt}(\frac{\delta L}{\delta\dot{\phi_1}}) &= ((m_1 + m_2)l_1^2\phi_1'' + m_2l_1l_2\phi_2''\cos(\phi_1 - \phi_2) - m_2l_1l_2\dot{\phi_2}\sin(\phi_1 - \phi_2)(\dot{\phi_1} - \dot{\phi_2}) \\
-\frac{\delta L}{\delta \phi_1} &= -m_2l_1l_2\dot{\phi_1}\dot{\phi_2}\sin(\phi_1 - \phi_2) + g(m_1 + m_2)l_2sin(\phi_1) \\
-\frac{d}{dt}(\frac{\delta L}{\delta\dot{\phi_2}}) &= m_2l_2^2\phi_2'' + m_2l_1l_2\phi_1''\cos(\phi_1 - \phi_2) - m_2l_1l_2\phi_1\sin(\phi_1 - \phi_2)(\dot{\phi_1} - \dot{\phi_2}) \\
-\frac{\delta L}{\delta \phi_2} &= -m_2l_1l_2\dot{\phi_1}\dot{\phi_2}\sin(\phi_1 - \phi_2) - m_2l_2sin(\phi_2)
-\end{align*}
-\end{enumerate}
-\section{Zeitdilatation und Längenkontraktion}
-Trivial :D
 \section{Harmonischer Oszillator}
 
 Gegeben sei ein quantenmechanischer harmonischer Oszillator beschrieben durch die eine Wellenfunktion
@@ -79,7 +28,7 @@ und der Energie
 \begin{enumerate}[a)]
 \item Schreiben Sie die Wellenfunktion als eine Summe von Eigenfunktionen des harmonischen Oszillators und bestimmen Sie eine zeitabhängige Wellenfunktion $\psi(x,t)$.
 \item[Lösung:]
-Durch scharfes hinsehen sieht man:
+Durch scharfes hinsehen wieht man:
 \[\psi(x)=\frac{\sqrt 3}{2}\psi_1(x)+\frac{1}{2}\psi_2(x)\]
 Der Faktor $\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega}{2\hbar}x^2}$ kommt in allen Eigenfunktionen vor. Betrachte also nur die Klammer, $\psi_1$ ist die einzige Funktion die $x^1$ enthält und $\psi_2$ die einzige mit $x^2$.\\
 Es gilt
@@ -93,8 +42,7 @@ Es ist also
 \item Berechnen Sie Orts- und Impulsmittelwert $\braket{x}=\braket{\psi|x|\psi}$ und $\braket{p}=\braket{\psi|p|\psi}$ im Zustand $\psi(x,t)$
 \item[Lösung:]
 \begin{align*}
-\braket{x}	&=\braket{\psi|x|\psi} = \frac 12 \sqrt{\frac{2\hbar}{m\omega}} \braket{\psi^\ast |(\hat a + \hat a^\dagger)|\psi} \\
-			&=\frac 12 \sqrt{\frac{2\hbar}{m\omega}}(N_0^\ast \bra 0 + N_1^\ast \bra 1 + N_2^\ast \bra 2)\:(\hat a +\hat a^\dagger)\:(N_0 \ket 0 + N_1 \ket 1 + N_2 \ket 2) \\
+\braket{x}	&=\braket{\psi|x|\psi} = \frac 12 \sqrt{\frac{2\hbar}{m\omega}} \psi^\ast (\hat a + \hat a^\dagger) \psi     \frac 12 \sqrt{\frac{2\hbar}{m\omega}}(N_0^\ast \bra 0 + N_1^\ast \bra 1 + N_2^\ast \bra 2)\:(\hat a +\hat a^\dagger)\:(N_0 \ket 0 + N_1 \ket 1 + N_2 \ket 2) \\
 \intertext{Da die $N_i$ rein reell sind, ist $N_i=N_i^\ast$. Außerdem ist $N_0=0$}
 			&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\big(N_1 \bra 1 + N_2 \bra 2\big)(\hat a +\hat a^\dagger) \big(N_1 \ket 1 + N_2 \ket 2\big) \\
 			&= \frac 12 \sqrt{\frac{2\hbar}{m\omega}}\big(N_1 \bra 1 + N_2 \bra 2\big)\:\hat a\big(N_1 \ket 1 + N_2 \ket 2\big) \\
@@ -173,7 +121,7 @@ Berechne dann $\braket{x^2}$:
 				&=  \frac 74 \frac{\hbar}{m\omega}\\
 \intertext{Integration von $\int_{-\infty}^{\infty} \psi^\ast(x) \hat x^2 \psi(x)\:dx$ ergibt das Gleiche (mit CAS)}
 \end{align*}
-Bei der Lösung ist es enorm hilfreich, dass $\braket{i|j} = \delta_{i,j}$ ist, d.h. fast alle Brakets fallen weg. Man kann sich außerdem überlegen, wie $\hat a \hat a, \hat a\hat a^\dagger, \dots$ aussehen und spart sich damit einen Zwischenschritt und viel Schreibarbeit.
+Bei der Lösung ist es enorm hilfreich, dass $\braket{i|j} = \delta_{i,j}$, d.h. fast alle Brakets fallen weg. Man kann sich außerdem überlegen, wie $\hat a \hat a, \hat a\hat a^\dagger, \dots$ aussehen und spart sich damit einen Zwischenschritt und viel Schreibarbeit.
 
 \begin{align*}
 \braket{p^2}	&= \braket{\psi|\hat p^2|\psi}		\\
@@ -262,11 +210,7 @@ Wahrscheinlichkeit im Zustand $\psi$ den Spin $\frac\hbar 2$ in $x$-Richtung zu 
 	&=
 	\frac \hbar {16} 2 (1 -\sqrt 3 +\sqrt 3 -\sqrt 3 \sqrt 3)\\ 
 	&=
-<<<<<<< HEAD
-	\frac \hbar {16} 2 (1 - 3) = -\frac \hbar 4		?????
-=======
 	\frac \hbar {16} 2 (1 - 3) = -\frac \hbar 2
->>>>>>> 616642a26622d7fa97fe2ea5067ecb4bdb7aa221
 \end{align*}
 Genauso für die $y$-Richtung:
 \begin{align*}
@@ -317,7 +261,7 @@ Offensichtlich ist $\psi$ weder im Eigenraum $\left[\vecz 11 \right]$ noch im Ei
 
 
 \item Bestimmen Sie nun die Wahrscheinlichkeit im Zustand $\psi$ die Energie $E_1$ bzw. $E_2$ zu messen. Geben Sie anschließend den Mittelwert der Energien
-\[\braket{E} = \braket{\psi|\hat H|\psi}\]
+\[\braket{E} = \braket{\psi|E\hat H|\psi}\]
 an.
 \item[Lösung:]
 \begin{align*}
