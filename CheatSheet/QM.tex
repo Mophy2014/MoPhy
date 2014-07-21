@@ -76,7 +76,8 @@ Bewegte Masse	& $m=\gamma m_0$  \qquad \text{ (Mit Ruhemasse $m_0$)} \\
 Impuls			& $p=mv = \gamma m_0 v$ \\
 Energie			& $E=mc^2=\gamma m_0c^2$ \\
 Kinetische Energie 		
-				& $E_\text{kin} = \frac 12 m v^2 = \frac \gamma 2 m_0 v^2 = mc^2 - m_0c^2$
+				& $E_\text{kin} = \frac 12 m v^2 = \frac \gamma 2 m_0 v^2 = mc^2 - m_0c^2$\\
+Photoeffekt		& $E_\gamma = W_A + E_\text{el,kin}$ \\
 \end{tabular} 
 
 \subsection{Konstanten}
@@ -111,8 +112,20 @@ p_\gamma &= \frac{E_\gamma}{c} \quad \text{(Impuls des Photons)}\\
 \L_z 	&= xp_y - yp_x = -i\hbar \left( x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}\right)\\
 \left[L_i,\hat f\right] &= 0 \text{, für Skalaroperatoren $\hat f$} \\
 \left[L_i,\hat f_k\right] &= -i\hbar \epsilon_{ijk}\hat f_k \text{, für Vektoroperatoren $\hat f$} \\
-\left[L_i,\hat f_{kl}\right]23 &= i\hbar (\epsilon_{ikp}\delta_{nl}+\epsilon_{iln}\delta_{kp})\hat f_{pn}
+\left[L_i,\hat f_{kl}\right] &= i\hbar (\epsilon_{ikp}\delta_{nl}+\epsilon_{iln}\delta_{kp})\hat f_{pn}
 \end{align*}
+
+
+\subsection{Potentialtopf}
+\begin{align*}
+k_1 = k_3 &= \sqrt{\frac{2mE}{\hbar^2}} \\
+k_2 &= \sqrt{\frac{2m(E-V_0)}{\hbar^2}} \\
+r &= A+B-1 \\
+\psi_\text I(x) &= e^{ik_1x} + re^{-ik_1x} \\
+\psi_\text{II}(x) &= Ae^{ik_2x} + Be^{ik_2x} \\
+\psi_\text{III}(x) &= t e^{-ik_3(x-a)}
+\end{align*}
+Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent. 
 
  
  
