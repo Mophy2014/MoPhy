@@ -5,6 +5,7 @@
 \usepackage{enumerate}
 \usepackage[utf8]{inputenc}
 \usepackage{braket}
+\usepackage{tikz}
 
 \newcommand{\Sx}{\begin{pmatrix}0&1\\1&0\end{pmatrix}}
 \newcommand{\vecz}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
@@ -12,6 +13,74 @@
 \allowdisplaybreaks % allow breaking align enviornment over multiple pages
 
 \begin{document}
+
+\section{Doppelpendel}
+Betrachten Sie ein gekoppeltes Pendel in einer Ebene mit den Massen $m_1$ und $m_2$ und den Seillängen $l_1$ und $l_2$ (siehe Abbildung:)
+\begin{figure}
+\begin{tikzpicture}
+\draw (-5,0) -- (5,0);
+\foreach \x in {-4.5,...,4} {
+	\draw (\x,0) -- (\x+0.4,0.4);
+}
+\draw[thick] (0,0) -- (2,-3) node[xshift=0.4cm,midway] {$l_1$};
+\draw[thick] (2,-3) -- (4,-5) node[xshift=0.4cm,midway] {$l_2$};
+\draw(0,0) -- (0,-2);
+\draw(2,-3) -- (2,-5);
+\fill[thick,draw=black,fill=gray] (2,-3) circle (0.3cm) node[xshift=.6cm]{$m_1$};
+\fill[thick,draw=black,fill=gray] (4,-5) circle (0.3cm) node[xshift=.6cm]{$m_2$};
+\end{tikzpicture}
+\end{figure}
+
+\begin{enumerate}[a)]
+\item Wie lautet die potentielle Energie des Systems im Schwerefeld (Schwerkraft auf eine Masse $m$: $F_z = -mg$).
+\item[Lösung:] Potentielle Energie setzt sich aus $V_1$ und $V_2$ zusammen. Die Position der Massen sei mit $\vec r_1=\vecz{y_1}{z_1}$ bzw. mit $\vec r_2=\vecz{y_2}{z_2}$ bezeichnet ($z$-Achse zeige nach oben und $x$-Achse nach rechts).
+\begin{align*}
+V_1 &= -F_{1_z}z_1 \\
+	&= m_1gz_1	\\
+V_2 &= m_2gz_2 \\
+V	&= V_1+V_2	\\
+	&= m_1gz_1 + m_2gz_2\\
+	&= g(m_1z_1 + m_2z_2)
+\end{align*}
+
+\item Schreiben Sie die Lagrangefunktion $L$ des Systems. Führen Sie Polarkoordinaten ein!
+\item[Lösung:]
+\begin{align*}
+y_1 	&= l_1 \sin \phi_1	\\
+x_1 	&= l_1 \cos \phi_1	\\
+y_2		&= y_1 + l_2 \sin \phi_2	\\
+		&= l_1 \sin \phi_1 + l_2 \sin \phi_2	\\
+z_2		&= z_1 + l_2 \cos \phi_2	\\
+		&= l_1 \cos \phi_1 + l_2 \cos \phi_2 
+\end{align*}
+Potentielle Energie ist aus a) bekannt. Berechne noch kinetische Energie:
+\begin{align*}
+T_1		&= \frac 12 m_1 \dot{\vec r}_1^2	\\
+		&= \frac 12 m_1 \left(\frac{d}{dt} \vecz{l_1 \sin \phi_1}{l_1 \cos \phi_1}\right)^2 \\
+		&= \frac 12 m_1 l_1^2 \dot \phi_1 \underbrace{\vecz{\cos \phi_1}{-\sin \phi_1}^2}_{1}\\
+		&= \frac 12 m_1 l_1^2 \dot \phi_1	\\
+T_2 	&= \frac 12 m_2 \dot{\vec r}_2^2	\\
+		&= \frac 12 m_1 \left(\frac{d}{dt} 
+		\vecz{l_1 \sin \phi_1 + l_2 \sin \phi_2}
+			 {l_1 \cos \phi_1 + l_2 \cos \phi_2}
+		\right)^2 \\
+		&= \frac 12 m_1
+		\vecz{\phantom{-} \dot\phi_1 l_1 \cos \phi_1 + \dot\phi_2 l_2 \cos \phi_2}
+			 {			 -\dot\phi_1 l_1 \sin \phi_1 - \dot\phi_2 l_2 \sin \phi_2}
+		^2 \\
+		&= \frac 12 m_1
+		\left(
+		( \dot\phi_1 l_1 \cos \phi_1 + \dot\phi_2 l_2 \cos \phi_2)^2\\
+		&+ ( \dot\phi_1 l_1 \cos \phi_1 + \dot\phi_2 l_2 \cos \phi_2)
+		  (-\dot\phi_1 l_1 \sin \phi_1 - \dot\phi_2 l_2 \sin \phi_2)
+		&+ (-\dot\phi_1 l_1 \sin \phi_1 - \dot\phi_2 l_2 \sin \phi_2)^2
+		\right)
+\end{align*}
+\end{enumerate}
+
+
+
+
 \section{Harmonischer Oszillator}
 
 Gegeben sei ein quantenmechanischer harmonischer Oszillator beschrieben durch die eine Wellenfunktion
