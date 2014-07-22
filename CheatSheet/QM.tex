@@ -7,7 +7,7 @@
 \usepackage{amssymb}
 \usepackage[utf8]{inputenc}
 
-\newcommand{\myheading}[1]{\textbf{#1}}
+\newcommand{\myheading}[1]{\noindent\textbf{#1}\\}
 
 
 \begin{document}
@@ -58,7 +58,7 @@ S_0 &= \frac{\hbar}{2}\sigma_0 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&1\end{pma
 S_x = S_1 &= \frac{\hbar}{2}\sigma_1 = \frac{\hbar}{2} \begin{pmatrix}0&1\\1&0\end{pmatrix}	\\
 S_y = S_2 &= \frac{\hbar}{2}\sigma_2 = \frac{\hbar}{2} \begin{pmatrix}0&-i\\i&0\end{pmatrix}	\\
 S_z = S_3 &= \frac{\hbar}{2}\sigma_3 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&-1\end{pmatrix}	\\
-\vec S &= \begin{pmatrix}S_x\\S_y\\S_z\end{pmatrix}			\\
+\vec S &= \begin{pmatrix}S_x\\S_y\\S_z\end{pmatrix}	
 \end{align*}
 $S_1 = S_x, \; \sigma_1 = \sigma_x, \; S_2 = S_y \dots$
 
@@ -130,7 +130,8 @@ Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent.
 \operatorname{div} \vec X &= \vec \nabla \vec X 
 = \begin{pmatrix}\frac{\partial}{\partial x}\\\frac{\partial}{\partial y}\\\frac{\partial}{\partial z}\end{pmatrix}X 
 =\begin{pmatrix}\frac{\partial \vec X}{\partial x}\\\frac{\partial \vec X}{\partial y}\\\frac{\partial \vec X}{\partial z}\end{pmatrix} \\
-\operatorname{rot}\vec F &= \vec\nabla\times \vec F =\begin{pmatrix}  \frac{\partial}{\partial x} \\  \frac{\partial}{\partial y} \\  \frac{\partial}{\partial z}\end{pmatrix}\times\begin{pmatrix}  F_x\\  F_y\\  F_z\end{pmatrix}=\begin{pmatrix}  \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\  \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\  \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\end{pmatrix}
+\operatorname{rot}\vec F &= \vec\nabla\times \vec F =\begin{pmatrix}  \frac{\partial}{\partial x} \\  \frac{\partial}{\partial y} \\  \frac{\partial}{\partial z}\end{pmatrix}\times\begin{pmatrix}  F_x\\  F_y\\  F_z\end{pmatrix}=\begin{pmatrix}  \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\  \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\  \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\end{pmatrix}\\
+\frac{a}{b} &= 
 \end{align*}
 
 \myheading{Maxwell}
