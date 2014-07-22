@@ -7,23 +7,27 @@
 \usepackage{amssymb}
 \usepackage[utf8]{inputenc}
 
-
+\newcommand{\myheading}[1]{\textbf{#1}}
 
 
 \begin{document}
 \begin{multicols}{3}
 
-\noindent Zeitabhängige Wellenfunktion:
+\myheading{Harmonischer Oszillator}
 \[
 	\psi(x,t)
 		= \alpha e^{-itE_0/\hbar}\ket 0 
 		+ \beta  e^{-itE_1/\hbar}\ket 1  
 		+ \cdots
 \]
+\[V(x)=\frac 1 2 k x^2 = \frac 1 2 m \omega^2 x^2\]
 Mit den Energien $E_n = \left(n+\frac 12\right) \omega \hbar $ \\
 Und den Eigenfunktionen $\ket n = \psi_n(x)$\\
+Schrödingergleichung:
+\[\mathrm{i}\hbar\frac{\partial}{\partial t} |\,\psi (t) \rangle = \hat{H} |\,\psi (t) \rangle\]
 
-\subsection{Operatoren}
+
+\myheading{Operatoren}
 \begin{tabular}{ll}
 Ortsoperator 			& $\hat x = x = i \hbar \frac{\partial}{\partial p}$	\\
 Impulsoperator 			& $\hat p = p = -i\hbar \frac{\partial}{\partial x}$	\\
@@ -37,7 +41,7 @@ Damit gilt				& $\hat x  = \frac 12 \sqrt{\frac{2\hbar}{m\omega}}(\hat a + \hat 
 						& $\ket n = \frac{(\hat a^\dagger)^n}{\sqrt {n!}} \ket 0 $
 \end{tabular}
 
-\subsection{Mittelwerte}
+\myheading{Mittelwerte}
 \begin{align*}
 \braket{x} 	&=\braket{\psi|x|\psi}\\
 			&=\int_{-\infty}^{\infty} x\:|\psi(x)|^2\:dx\qquad\text{nur falls } x \text{ kein Operator!}\\
@@ -48,28 +52,22 @@ Damit gilt				& $\hat x  = \frac 12 \sqrt{\frac{2\hbar}{m\omega}}(\hat a + \hat 
 \end{align*}
 
 
-\subsection{Pauli-Matrizen}
+\myheading{Pauli-Matrizen}
 \begin{align*}
 S_0 &= \frac{\hbar}{2}\sigma_0 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&1\end{pmatrix}	\\
-S_1 &= \frac{\hbar}{2}\sigma_1 = \frac{\hbar}{2} \begin{pmatrix}0&1\\1&0\end{pmatrix}	\\
-S_2 &= \frac{\hbar}{2}\sigma_2 = \frac{\hbar}{2} \begin{pmatrix}0&-i\\i&0\end{pmatrix}	\\
-S_3 &= \frac{\hbar}{2}\sigma_3 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&-1\end{pmatrix}	\\
+S_x = S_1 &= \frac{\hbar}{2}\sigma_1 = \frac{\hbar}{2} \begin{pmatrix}0&1\\1&0\end{pmatrix}	\\
+S_y = S_2 &= \frac{\hbar}{2}\sigma_2 = \frac{\hbar}{2} \begin{pmatrix}0&-i\\i&0\end{pmatrix}	\\
+S_z = S_3 &= \frac{\hbar}{2}\sigma_3 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&-1\end{pmatrix}	\\
 \vec S &= \begin{pmatrix}S_x\\S_y\\S_z\end{pmatrix}			\\
 \end{align*}
 $S_1 = S_x, \; \sigma_1 = \sigma_x, \; S_2 = S_y \dots$
 
-\begin{align*}
-\gamma
-E_\text{kin} &= \frac 12 m V^2 = 	\\	
-p	&= \sqrt{2 m E_\text{kin}} \\
-\end{align*}
-
-\subsection{De Broglie}
+\myheading{De Broglie}
 \begin{align*}
 \lambda = \frac{h}{p} = \frac{h}{m\cdot v}
 \end{align*}
 
-\subsection{Relativitätstheorie}
+\myheading{Relativitätstheorie}
 \begin{tabular}{ll}
 Lorentzfaktor 	& $\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}$ \\
 Bewegte Masse	& $m=\gamma m_0$  \qquad \text{ (Mit Ruhemasse $m_0$)} \\
@@ -81,7 +79,7 @@ Photoeffekt		& $E_\gamma =  W_A + E_\text{el,kin}$ \\
 \hfill $v_1 \oplus v_2 $ & $=\frac{v_1+v_2}{1+\frac{v_1v_2}{c^2}}$
 \end{tabular} 
 
-\subsection{Konstanten}
+\myheading{Konstanten}
 \begin{align*}
 m_e &= 9.10938291\cdot 10^{-31} \text{ kg} \\
 m_p &= 1.67262178\cdot 10^{-27} \text{ kg} \\
@@ -92,7 +90,7 @@ E_\gamma &= h \nu \quad\text{ (Energie des Photons)} \\
 p_\gamma &= \frac{E_\gamma}{c} \quad \text{(Impuls des Photons)}\\
 \end{align*}
 
-\subsection{Kommutatoren}
+\myheading{Kommutatoren}
 \begin{align*}
 \left[\hat L_i,\hat x_j\right] &= i\hbar \epsilon_{ijk}\hat x_k	\\
 \left[\hat L_i,\hat p_j\right] &= i\hbar \epsilon_{ijk}\hat p_k	\\
@@ -100,7 +98,7 @@ p_\gamma &= \frac{E_\gamma}{c} \quad \text{(Impuls des Photons)}\\
 \left[\hat A\hat B, \hat C\right]&= \hat A \left[ \hat B, \hat C \right] + \left[ \hat A, \hat C \right] \hat B\\
 \end{align*}
 
-\subsection{Drehimpuls}
+\myheading{Drehimpuls}
 \begin{align*}
 \vec r 	&= \begin{pmatrix}\hat x\\\hat y\\\hat z\end{pmatrix},
 \quad \vec p 	= \begin{pmatrix}\hat p_x\\\hat p_y\\\hat p_z\end{pmatrix},
@@ -117,15 +115,15 @@ p_\gamma &= \frac{E_\gamma}{c} \quad \text{(Impuls des Photons)}\\
 \end{align*}
 
 
-\subsection{Potentialtopf}
+\myheading{Potentialtopf}
 \begin{align*}
 k_1 = k_3 = \sqrt{\frac{2mE}{\hbar^2}}, \qquad k_2 = \sqrt{\frac{2m(E-V_0)}{\hbar^2}} \\
 r = A+B-1, \qquad \psi_\text I(x) = e^{ik_1x} + re^{-ik_1x} \\
-\psi_\text{II}(x) = Ae^{ik_2x} + Be^{ik_2x}, \qquad \psi_\text{III}(x) = t e^{-ik_3(x-a)}
+\psi_\text{II}(x) = Ae^{ik_2x} + Be^{-ik_2x}, \qquad \psi_\text{III}(x) = t e^{-ik_3(x-a)}
 \end{align*}
 Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent. 
 
-\subsection{Allgemein}
+\myheading{Allgemein}
 \begin{align*}
 \sin(x\pm y) &= \sin x \cos y \pm \cos x \sin y	\\
 \cos(x\pm y) &= \cos x \cos y \mp \sin x \sin y \\
@@ -135,7 +133,7 @@ Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent.
 \operatorname{rot}\vec F &= \vec\nabla\times \vec F =\begin{pmatrix}  \frac{\partial}{\partial x} \\  \frac{\partial}{\partial y} \\  \frac{\partial}{\partial z}\end{pmatrix}\times\begin{pmatrix}  F_x\\  F_y\\  F_z\end{pmatrix}=\begin{pmatrix}  \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\  \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\  \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\end{pmatrix}
 \end{align*}
 
-\subsection{Maxwell}
+\myheading{Maxwell}
 Elektrisches Feld $\vec E$, magnetisches Feld $\vec B$, Ladungsdichte $\rho$, elektrische Stromdichte $\vec j$
 \begin{align*}
 \operatorname{div} \vec E &= \vec \nabla \vec D = \frac \rho {\varepsilon_0} \\
