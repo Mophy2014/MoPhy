@@ -136,22 +136,16 @@ p_\gamma &= \frac{E_\gamma}{c} \quad \text{(Impuls des Photons)}\\
 %
 \L_z 	&= xp_y - yp_x = -i\hbar \left( x\frac{\partial}{\partial y}-y\frac{\partial}{\partial x}\right)\\
 \left[L_i,\hat f\right] &= 0 \text{, für Skalaroperatoren $\hat f$} \\
-\left[L_i,\hat f_k\right] &= -i\hbar \epsilon_{ijk}\hat f_k \text{, für Vektoroperatoren $\hat f$} \\
-\left[L_i,\hat f_{kl}\right] &= i\hbar (\epsilon_{ikp}\delta_{nl}+\epsilon_{iln}\delta_{kp})\hat f_{pn}
+\left[L_i,\hat f_j\right] &= -i\hbar \epsilon_{ijk}\hat f_k \text{, für Vektoroperatoren $\hat f$} \\
+\left[L_i,\hat f_{kl}\right] &= i\hbar (\epsilon_{ikp}\delta_{nl}+\epsilon_{iln}\delta_{kp})\hat f_{pn}\\
+L_\pm &= L_x \pm i L_y \text {(Leiteroperator)} \\
+L_+\ket{m} &= c\ket{m+1} \\
+L^2 &= \vec L^2 =  L_x^2+L_y^2+L_z^2 \\
+[L^2,L_x] &= [L^2,L_y] = [L^2,L_z] = 0 \\
+L_+\ket{l,n} &= \hbar\sqrt{(l-m)(l+m+1)}\ket{l,n+1} \\
+L_-\ket{l,n} &= \hbar\sqrt{(l+m)(l-m+1)}\ket{l,n-1} \\
+[]L_i,L_j] &= i\hbar L_k\quad i\neq j\neq k\neq i,\quad i,j,k\in\{x,y,z\}\\
 \end{align*}}
-
-
-\myheading{Potentialbarriere}
-{\begin{align*}
-k_1 = k_3 = \sqrt{\frac{2mE}{\hbar^2}}, \qquad k_2 = \sqrt{\frac{2m(E-V_0)}{\hbar^2}} \\
-r = A+B-1, \qquad \psi_\text I(x) = e^{ik_1x} + re^{-ik_1x} \\
-\psi_\text{II}(x) = Ae^{ik_2x} + Be^{-ik_2x}, \qquad \psi_\text{III}(x) = t e^{-ik_3(x-a)} \\
-|t|^2 = \scriptstyle{\frac{4k_1^2k_2^2}{4k_1^2k_2^2+(k_1^2-k_2^2)\sin^2(k_2a)}=\frac{4E(E-V_0)}{4E(E-V_0)+V_0^2\sin^2(k_2a)}} (E>V_0)\\
-|t|^2 = \scriptstyle{\frac{4k_1^2k_2^2}{4k_1^2k_2^2+(k_1^2+\kappa)\sinh^2(\kappa a)}=\frac{4E(E-V_0)}{4E(E-V_0)+V_0^2\sinh^2(\kappa a)}} (E<V_0)\\
-|t^2| \approx \frac{E(V_0 - E)}{V_0^2}e^{-2\kappa a} \qquad \kappa = \frac{\sqrt{2m(V_0 - E)}}{\hbar}
-\end{align*}}
-
-Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent. 
 
 \end{minipage}
 \end{tabular}
@@ -168,7 +162,8 @@ Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent.
 = \begin{pmatrix}\frac{\partial}{\partial x}\\\frac{\partial}{\partial y}\\\frac{\partial}{\partial z}\end{pmatrix}X 
 =\begin{pmatrix}\frac{\partial \vec X}{\partial x}\\\frac{\partial \vec X}{\partial y}\\\frac{\partial \vec X}{\partial z}\end{pmatrix} \\
 \operatorname{rot}\vec F &= \vec\nabla\times \vec F =\begin{pmatrix}  \frac{\partial}{\partial x} \\  \frac{\partial}{\partial y} \\  \frac{\partial}{\partial z}\end{pmatrix}\times\begin{pmatrix}  F_x\\  F_y\\  F_z\end{pmatrix}=\begin{pmatrix}  \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\  \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\  \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\end{pmatrix}\\
-\frac{\partial^2}{\partial x^2} e^{-ax^2} &= 2 a e^{-a x^2} \left(2 a x^2-1\right)
+\frac{\partial^2}{\partial x^2} e^{-ax^2} &= 2 a e^{-a x^2} \left(2 a x^2-1\right) \\
+\vec \nabla (\vec a \cdot \vec b) &= (\vec a \cdot \vec \nabla) \vec b + (\vec b \cdot \vec \nabla)\vec a + \vec a \times \vec \nabla \times \vec b + \vec b \times \vec\nabla \times\vec a
 \end{align*}}
 
 \myheading{Maxwell}
@@ -203,7 +198,17 @@ $\Rightarrow \sum\limits_i \underbrace{\frac{\partial L}{\partial \dot q_i}}_{p_
 \end{minipage}
 &
 \begin{minipage}{0.3\linewidth}
+\myheading{Potentialbarriere}
+{\begin{align*}
+k_1 = k_3 = \sqrt{\frac{2mE}{\hbar^2}}, \qquad k_2 = \sqrt{\frac{2m(E-V_0)}{\hbar^2}} \\
+r = A+B-1, \qquad \psi_\text I(x) = e^{ik_1x} + re^{-ik_1x} \\
+\psi_\text{II}(x) = Ae^{ik_2x} + Be^{-ik_2x}, \qquad \psi_\text{III}(x) = t e^{-ik_3(x-a)} \\
+|t|^2 = \scriptstyle{\frac{4k_1^2k_2^2}{4k_1^2k_2^2+(k_1^2-k_2^2)\sin^2(k_2a)}=\frac{4E(E-V_0)}{4E(E-V_0)+V_0^2\sin^2(k_2a)}} (E>V_0)\\
+|t|^2 = \scriptstyle{\frac{4k_1^2k_2^2}{4k_1^2k_2^2+(k_1^2+\kappa)\sinh^2(\kappa a)}=\frac{4E(E-V_0)}{4E(E-V_0)+V_0^2\sinh^2(\kappa a)}} (E<V_0)\\
+|t^2| \approx \frac{E(V_0 - E)}{V_0^2}e^{-2\kappa a} \qquad \kappa = \frac{\sqrt{2m(V_0 - E)}}{\hbar}
+\end{align*}}
 
+Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent. 
 \end{minipage}
 
 \end{tabular}
