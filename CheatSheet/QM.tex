@@ -6,13 +6,13 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[utf8]{inputenc}
-
 \newcommand{\myheading}[1]{\noindent\textbf{#1}\\}
-
+\usepackage{parskip}
 
 \begin{document}
-\begin{multicols}{3}
 
+\begin{tabular}{lll}
+\begin{minipage}{0.3\linewidth} % Left column
 \myheading{Harmonischer Oszillator}
 \[
 	\psi(x,t)
@@ -23,56 +23,72 @@
 \[V(x)=\frac 1 2 k x^2 = \frac 1 2 m \omega^2 x^2\]
 Mit den Energien $E_n = \left(n+\frac 12\right) \omega \hbar $ \\
 Und den Eigenfunktionen $\ket n = \psi_n(x)$\\
-Schrödingergleichung:
-\[\mathrm{i}\hbar\frac{\partial}{\partial t} |\,\psi (t) \rangle = \hat{H} |\,\psi (t) \rangle\]
 
 
 \myheading{Operatoren}
 \begin{tabular}{ll}
-Ortsoperator 			& $\hat x = x = i \hbar \frac{\partial}{\partial p}$	\\
-Impulsoperator 			& $\hat p = p = -i\hbar \frac{\partial}{\partial x}$	\\
+Ortsoperator* 			& $\hat x = x = i \hbar \frac{\partial}{\partial p}$	\\
+Impulsoperator*			& $\hat p = p = -i\hbar \frac{\partial}{\partial x}$	\\
 Abstiegsoperator 		& $\hat a = \sqrt{\frac{m \omega}{2\hbar}} \hat x + \frac{i}{\sqrt{2\hbar m \omega}} \hat p$	\\
 Aufstiegsoperator 		& $\hat a^\dagger = \sqrt{\frac{m \omega}{2\hbar}} \hat x - \frac{i}{\sqrt{2\hbar m \omega}} \hat p$ \\
-Hamiltonoperator		& $\hat H=\frac{\hat p^2}{2m}+\frac{1}{2}m\omega^2\hat x^2 = \frac{\hat p^2}{2m} + V(\hat x)$	\\
+Hamiltonoperator		&	\\
+$\bullet$ harm. Oszil.	& $\hat H_o=\frac{\hat p^2}{2m}+\frac{1}{2}m\omega^2\hat x^2 = \frac{\hat p^2}{2m} + V(\hat x)$	\\
+$\bullet\:H_2$-Atom		& $ \hat H_h =  -\frac{\hbar^2}{2m}\vec\nabla^2-\frac{e^2}{4\pi\varepsilon_0}\frac{1}{|r^2|} $ \\
 Damit gilt				& $\hat x  = \frac 12 \sqrt{\frac{2\hbar}{m\omega}}(\hat a + \hat a^\dagger) $ \\
 						& $\hat p  = \frac 1{2i} \sqrt {2\hbar m \omega} (\hat a - \hat a^\dagger) $\\
 						& $\hat a\ket n = \sqrt{n}\ket{n-1} \qquad \hat a \ket 0 = 0$ \\
 						& $\hat a^\dagger \ket n = \sqrt{n+1}\ket {n+1}$	\\
-						& $\ket n = \frac{(\hat a^\dagger)^n}{\sqrt {n!}} \ket 0 $
+						& $\ket n = \frac{(\hat a^\dagger)^n}{\sqrt {n!}} \ket 0 $ \\
+Hermitescher Operator 	& $A^\dagger = (A^\ast)^\text T = A$	\\
+						& $\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\Leftrightarrow\!\!\!
+						\int\limits_{-\infty}^{\infty}\!\!\! f^\ast(x) P(g(x)) \: dx =
+						\!\!\!\!\int\limits_{-\infty}^{\infty}\!\!\! P(f(x))g^\ast(x) \: dx$ \\
+* = ist hermitesch		& \\
+\textbf{Schrödingergleichung}
+						& $\mathrm{i}\hbar\frac{\partial}{\partial t} |\,\psi (t) \rangle = \hat{H} |\,\psi (t) \rangle$\\
+Unschärfe				& $\Delta x \Delta p = \frac \hbar 2 $\\
+$\Delta p = \sqrt{\braket{p^2}-\braket p^2}$ & $\Delta x = \sqrt{\braket{x^2}-\braket x^2}$ \\
 \end{tabular}
 
+
+\myheading{$H_2$-Atom}
+\[E_n = -\frac{E_\text{Ry}}{n^2}	\qquad E_\text{Ry} = 13.6\text{ eV} \qquad \vec r = \vec r_e - \vec r_p\]
+
+\myheading{Pauli-Matrizen}
+{\begin{align*}
+S_0 &= \frac{\hbar}{2}\sigma_0 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&1\end{pmatrix}	\\
+S_x = S_1 &= \frac{\hbar}{2}\sigma_1 = \frac{\hbar}{2} \begin{pmatrix}0&1\\1&0\end{pmatrix}	\\
+S_y = S_2 &= \frac{\hbar}{2}\sigma_2 = \frac{\hbar}{2} \begin{pmatrix}0&-i\\i&0\end{pmatrix}	\\
+S_z = S_3 &= \frac{\hbar}{2}\sigma_3 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&-1\end{pmatrix}	\\
+\vec S &= \begin{pmatrix}S_x\\S_y\\S_z\end{pmatrix} = \frac\hbar 2 \sigma = \frac \hbar 2 \begin{pmatrix}
+\sigma_x \\ \sigma_y \\ \sigma_z
+\end{pmatrix}
+\end{align*}}
+
+\end{minipage}
+&
+\begin{minipage}{0.3\linewidth}
 \myheading{Mittelwerte}
-\begin{align*}
+{\begin{align*}
 \braket{x} 	&=\braket{\psi|x|\psi}\\
 			&=\int_{-\infty}^{\infty} x\:|\psi(x)|^2\:dx\qquad\text{nur falls } x \text{ kein Operator!}\\
 			&=\int_{-\infty}^{\infty} \psi(x)^\ast \hat x\:\psi(x)\:dx		\\
 			&=\frac 12 \sqrt{\frac{2\hbar}{m\omega}}(\alpha^\ast \bra 0 + \beta^\ast \bra 1 + \dots) (\hat a + \hat a^\dagger) (\alpha \ket 0 + \beta \ket 1 + \dots) \\
 \braket{p}	&=\braket{\psi|x|\psi}	\\
 			&=\int_{-\infty}^{\infty} \hat p\:|\psi(x)|^2\:dx= \text{ analog zu}\braket{\psi|x|\psi}\text{.}	\\
-\end{align*}
-
-
-\myheading{Pauli-Matrizen}
-\begin{align*}
-S_0 &= \frac{\hbar}{2}\sigma_0 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&1\end{pmatrix}	\\
-S_x = S_1 &= \frac{\hbar}{2}\sigma_1 = \frac{\hbar}{2} \begin{pmatrix}0&1\\1&0\end{pmatrix}	\\
-S_y = S_2 &= \frac{\hbar}{2}\sigma_2 = \frac{\hbar}{2} \begin{pmatrix}0&-i\\i&0\end{pmatrix}	\\
-S_z = S_3 &= \frac{\hbar}{2}\sigma_3 = \frac{\hbar}{2} \begin{pmatrix}1&0\\0&-1\end{pmatrix}	\\
-\vec S &= \begin{pmatrix}S_x\\S_y\\S_z\end{pmatrix}	
-\end{align*}
-$S_1 = S_x, \; \sigma_1 = \sigma_x, \; S_2 = S_y \dots$
-
-\myheading{De Broglie}
-\begin{align*}
-\lambda = \frac{h}{p} = \frac{h}{m\cdot v}
-\end{align*}
+\text{Normierung} 	&\qquad |\!\braket{\psi}\!|^2 \overset{!}{=} 1 \\
+\vec j &= \frac{\hbar}{2mi} (\psi^\ast \vec\nabla \psi - (\vec \nabla\psi^\ast)\psi) \text{ Wahrscheinlichkeitsstromdichte}\\
+0			&= \frac{\partial \rho}{\partial t} + \vec \nabla\vec j \quad \text{Kontinuitäsgleichung, }
+	\|\psi\| = \text{const} \\
+\end{align*}}
 
 \myheading{Relativitätstheorie}
 \begin{tabular}{ll}
 Lorentzfaktor 	& $\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}$ \\
-Bewegte Masse	& $m=\gamma m_0$  \qquad \text{ (Mit Ruhemasse $m_0$)} \\
+Bewegte Masse	& $m=\gamma m_0$  \qquad \text{ (Ruhemasse $m_0$)} \\
 Impuls			& $p=mv = \gamma m_0 v$ \\
 Energie			& $E=mc^2=\gamma m_0c^2$ \\
+				& $E^2 = m_0^2c^4+p^2c^2$ \\
 Kinetische Energie 		
 				& $E_\text{kin} = \frac 12 m v^2 = \frac \gamma 2 m_0 v^2 = mc^2 - m_0c^2$\\
 Photoeffekt		& $E_\gamma =  W_A + E_\text{el,kin}$ \\
@@ -80,7 +96,7 @@ Photoeffekt		& $E_\gamma =  W_A + E_\text{el,kin}$ \\
 \end{tabular} 
 
 \myheading{Konstanten}
-\begin{align*}
+{\begin{align*}
 m_e &= 9.10938291\cdot 10^{-31} \text{ kg} \\
 m_p &= 1.67262178\cdot 10^{-27} \text{ kg} \\
 m_n &= 1.67492735\cdot 10^{-27} \text{ kg} \\
@@ -88,18 +104,28 @@ h &= 6.62606957\cdot 10^{-34} \text{Js} \\
 \hbar &= \frac{h}{2\pi} \\
 E_\gamma &= h \nu \quad\text{ (Energie des Photons)} \\
 p_\gamma &= \frac{E_\gamma}{c} \quad \text{(Impuls des Photons)}\\
-\end{align*}
+\end{align*}}
 
+\myheading{De Broglie}
+{\begin{align*}
+\lambda = \frac{h}{p} = \frac{h}{m\cdot v}
+\end{align*}}
+
+\end{minipage}
+&
+\begin{minipage}{0.3\linewidth}
 \myheading{Kommutatoren}
-\begin{align*}
+{\begin{align*}
 \left[\hat L_i,\hat x_j\right] &= i\hbar \epsilon_{ijk}\hat x_k	\\
 \left[\hat L_i,\hat p_j\right] &= i\hbar \epsilon_{ijk}\hat p_k	\\
 \left[\hat A, \hat B \hat C\right]&= \left[ \hat A, \hat B \right] \hat C+ \hat B\left[ \hat A, \hat C \right] \\
 \left[\hat A\hat B, \hat C\right]&= \hat A \left[ \hat B, \hat C \right] + \left[ \hat A, \hat C \right] \hat B\\
-\end{align*}
+\Big[\hat A, \hat B\Big] &= \hat A \hat B - \hat B \hat A \\
+\intertext{$\Rightarrow \Big[ \cdot, \cdot\Big]$ antisymmetrisch, linear.}
+\end{align*}}
 
 \myheading{Drehimpuls}
-\begin{align*}
+{\begin{align*}
 \vec r 	&= \begin{pmatrix}\hat x\\\hat y\\\hat z\end{pmatrix},
 \quad \vec p 	= \begin{pmatrix}\hat p_x\\\hat p_y\\\hat p_z\end{pmatrix},
 \quad \vec L = \vec p \times \vec r \\
@@ -112,19 +138,30 @@ p_\gamma &= \frac{E_\gamma}{c} \quad \text{(Impuls des Photons)}\\
 \left[L_i,\hat f\right] &= 0 \text{, für Skalaroperatoren $\hat f$} \\
 \left[L_i,\hat f_k\right] &= -i\hbar \epsilon_{ijk}\hat f_k \text{, für Vektoroperatoren $\hat f$} \\
 \left[L_i,\hat f_{kl}\right] &= i\hbar (\epsilon_{ikp}\delta_{nl}+\epsilon_{iln}\delta_{kp})\hat f_{pn}
-\end{align*}
+\end{align*}}
 
 
-\myheading{Potentialtopf}
-\begin{align*}
+\myheading{Potentialbarriere}
+{\begin{align*}
 k_1 = k_3 = \sqrt{\frac{2mE}{\hbar^2}}, \qquad k_2 = \sqrt{\frac{2m(E-V_0)}{\hbar^2}} \\
 r = A+B-1, \qquad \psi_\text I(x) = e^{ik_1x} + re^{-ik_1x} \\
-\psi_\text{II}(x) = Ae^{ik_2x} + Be^{-ik_2x}, \qquad \psi_\text{III}(x) = t e^{-ik_3(x-a)}
-\end{align*}
+\psi_\text{II}(x) = Ae^{ik_2x} + Be^{-ik_2x}, \qquad \psi_\text{III}(x) = t e^{-ik_3(x-a)} \\
+|t|^2 = \scriptstyle{\frac{4k_1^2k_2^2}{4k_1^2k_2^2+(k_1^2-k_2^2)\sin^2(k_2a)}=\frac{4E(E-V_0)}{4E(E-V_0)+V_0^2\sin^2(k_2a)}} (E>V_0)\\
+|t|^2 = \scriptstyle{\frac{4k_1^2k_2^2}{4k_1^2k_2^2+(k_1^2+\kappa)\sinh^2(\kappa a)}=\frac{4E(E-V_0)}{4E(E-V_0)+V_0^2\sinh^2(\kappa a)}} (E<V_0)\\
+|t^2| \approx \frac{E(V_0 - E)}{V_0^2}e^{-2\kappa a} \qquad \kappa = \frac{\sqrt{2m(V_0 - E)}}{\hbar}
+\end{align*}}
+
 Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent. 
 
+\end{minipage}
+\end{tabular}
+
+\newpage
+
+\begin{tabular}{lll}
+\begin{minipage}{0.3\linewidth}
 \myheading{Allgemein}
-\begin{align*}
+{\begin{align*}
 \sin(x\pm y) &= \sin x \cos y \pm \cos x \sin y	\\
 \cos(x\pm y) &= \cos x \cos y \mp \sin x \sin y \\
 \operatorname{div} \vec X &= \vec \nabla \vec X 
@@ -132,18 +169,58 @@ Dabei ist $t$ bzw. $r$ der Transmissions- bzw. Reflektionskoeffizent.
 =\begin{pmatrix}\frac{\partial \vec X}{\partial x}\\\frac{\partial \vec X}{\partial y}\\\frac{\partial \vec X}{\partial z}\end{pmatrix} \\
 \operatorname{rot}\vec F &= \vec\nabla\times \vec F =\begin{pmatrix}  \frac{\partial}{\partial x} \\  \frac{\partial}{\partial y} \\  \frac{\partial}{\partial z}\end{pmatrix}\times\begin{pmatrix}  F_x\\  F_y\\  F_z\end{pmatrix}=\begin{pmatrix}  \frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z} \\  \frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x} \\  \frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\end{pmatrix}\\
 \frac{\partial^2}{\partial x^2} e^{-ax^2} &= 2 a e^{-a x^2} \left(2 a x^2-1\right)
-\end{align*}
+\end{align*}}
 
 \myheading{Maxwell}
 Elektrisches Feld $\vec E$, magnetisches Feld $\vec B$, Ladungsdichte $\rho$, elektrische Stromdichte $\vec j$
-\begin{align*}
+{\begin{align*}
 \operatorname{div} \vec E &= \vec \nabla \vec D = \frac \rho {\varepsilon_0} \\
 \operatorname{div} \vec B &= \vec \nabla \vec B = 0 \\
 \operatorname{rot} \vec E &= -\frac{\partial \vec B}{\partial t} \\
 \operatorname{rot} \vec B &= \mu_0 \vec j+ \mu_0 \varepsilon_0 \frac{\partial \vec E}{\partial t} \\
-\end{align*}
- 
- 
- 
-\end{multicols}
+\end{align*}}
+\end{minipage}
+&
+\begin{minipage}{0.3\linewidth}
+\myheading{Hamilton - Lagrange}
+{\begin{align*}
+L 	&= T - V  = -mc^2 \cdot \sqrt{1-\frac{\dot \vec r^2}{c^2}}- U(\vec r, t) \\
+\frac{d}{d t} \frac{\partial}{\partial \dot q_i}L &= \frac{\partial}{\partial q_i} L \qquad \frac{\partial}{\partial \dot q_i} L = p_i  \\
+H &= \sum_i p_i \dot q_i(q, t) -L \\
+\dot q_i &= \frac{\partial H}{\partial p_i} \qquad \dot p_i = -\frac{\partial H}{\partial q_i} \\
+\frac{d H}{dt} &= \frac{\partial H}{\partial t} \text{  falls} = 0 \Rightarrow \text{ Energie ist erhalten}
+\end{align*}}
+
+3N-s Gleichungen bei $s$ Zwangsbedingungen und $N$ Teilchen.
+Noether: Falls eine Schar existiert mit $q(t,\alpha)$ sodass gilt
+\[L(q(t,\alpha),\dot q(t,\alpha),t) = L(q(t),\dot q(t),t)\]
+dann gilt
+\[ \frac{d}{d \alpha} L(q(t,\alpha),\dot q(t,\alpha), t) = 0\]
+Erweitertes Noether: Falls $L$ nicht invariant, dann
+\[\frac{d}{d\alpha} L(q(t,\alpha),\dot q(t,\alpha), t)|_{\alpha = 0}
+= \frac{d}{dt}L(q(t),\dot q(t), t) \]
+$\Rightarrow \sum\limits_i \underbrace{\frac{\partial L}{\partial \dot q_i}}_{p_i} \frac{\partial q_i}{\partial \alpha} - f$ ist erhalten, falls $L$ zeitinvariant.
+\end{minipage}
+&
+\begin{minipage}{0.3\linewidth}
+
+\end{minipage}
+
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
