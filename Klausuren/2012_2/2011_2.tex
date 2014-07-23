@@ -38,23 +38,21 @@ Gesucht ist die Wahrscheinlichkeit, $\frac \hbar 2 $ in $z$-Richtung zu messen, 
 \item[Lösung:]
 \begin{align*}
 \hat H  &= -\vec \mu \cdot \vec B \\
-	&= -\frac{e}{mc} \frac \hbar 2 \sigma B_0(\vec e_x +\sqrt 3 \vec e_y) \\
+	&= -\frac{e}{mc} \frac \hbar 2 \sigma B_0(\vec e_x +\sqrt 3 \vec e_z) \\
 	&= -\frac{e\hbar B_0}{2mc}\begin{pmatrix}
 	\sigma_x\\\sigma_y\\\sigma_z
 	\end{pmatrix}
-	\left(\begin{pmatrix}1\\0\\0\end{pmatrix} + \sqrt 3 \begin{pmatrix}0\\1\\0\end{pmatrix}\right) \\
- 	&=  -\frac{e\hbar B_0}{2 mc}(\sigma_x + \sqrt 3 \sigma_y)\\
+	\left(\begin{pmatrix}1\\0\\0\end{pmatrix} + \sqrt 3 \begin{pmatrix}0\\0\\1\end{pmatrix}\right) \\
+ 	&=  -\frac{e\hbar B_0}{2 mc}(\sigma_x + \sqrt 3 \sigma_z)\\
  	&= \underbrace{-\frac{e\hbar B_0}{2 mc}}_{=:\Lambda}\begin{pmatrix}
- 	0 & 1-i\sqrt 3 \\ 1+i\sqrt 3 & 0
+ 	\sqrt 3 & 1 \\ 1 & -\sqrt 3
  	\end{pmatrix}
 \end{align*}
 Eigenwerte von $\hat H$:
 \begin{align*}
 \left|\begin{matrix}
--E & \Lambda(1-i\sqrt 3)  \\ \Lambda(1+i\sqrt 3) & -E
-\end{matrix}\right| &= (E^2 - \Lambda^2(1+3))
-		= E^2 -4\Lambda^2 \overset{!}{=} 0 \\
-	\Rightarrow E_{1,2} &= \pm 2\Lambda = \mp \frac{e\hbar B_0}{mc}
+\sqrt 3 -E & \Lambda  \\ \Lambda & -\sqrt 3-E
+\end{matrix}\right| &= \
 \end{align*}
 Eigenvektoren von $\hat H$:
 \begin{itemize}
